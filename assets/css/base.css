@@ -23,6 +23,8 @@
 
 html {
    box-sizing: border-box;
+   overflow-y: scroll;
+   scrollbar-gutter: auto;
 }
 
 *, *::before, *::after {

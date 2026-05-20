@@ -1,10 +1,12 @@
 /******************************* header *******************************/
-
 .site-header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     align-items: center;
     padding: 8px;
 /******************************* z-index 1000 *******************************/
@@ -67,3 +69,4 @@
     width: 14px;
     height: 14px;
 }
+/******************************* header *******************************/
