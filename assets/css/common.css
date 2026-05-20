@@ -43,8 +43,9 @@
     z-index: 1000;
 }
 
-.site-header h1 {
+.site-brand {
     justify-self: start;
+    margin: 0;
     font-size: 30px;
     font-weight: 700;
     line-height: 1;
@@ -164,6 +165,46 @@
 }
 
 @media (max-width: 767px) {
+    .site-header {
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas:
+            "brand links"
+            "nav nav";
+        row-gap: 8px;
+    }
+
+    .site-brand {
+        grid-area: brand;
+        font-size: 22px;
+    }
+
+    .site-nav {
+        grid-area: nav;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    .site-nav ul {
+        gap: 4px;
+        padding: 4px;
+    }
+
+    .site-nav a {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .header-links {
+        grid-area: links;
+        align-self: center;
+        gap: 6px;
+    }
+
+    .header-link {
+        padding: 7px;
+        font-size: 12px;
+    }
+
     .site-footer {
         grid-template-columns: 1fr;
         grid-template-areas:

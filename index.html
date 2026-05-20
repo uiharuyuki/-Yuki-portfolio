@@ -11,9 +11,8 @@
         <!-- 「正式なURL」を検索エンジンに伝える -->
     <link rel="canonical" href="https://uiharuyuki.github.io/-Yuki-portfolio/">
         <!-- ブラウザのタブやブックマークに出る小さいアイコン -->
-    <link rel="icon" href="">
+    <link rel="icon" href="assets/images/icons/favicon.svg" type="image/svg+xml">
         <!-- iPhone/iPadで「ホーム画面に追加」したときのアイコン -->
-    <link rel="apple-touch-icon" href="">
 
     <!-- OGP -->
         <!-- SNS上で認識させるページURL -->
@@ -58,6 +57,7 @@
     <link rel="stylesheet" href="assets/css/component.css">
     <!-- Import CSS home -->
     <link rel="stylesheet" href="assets/css/pages/home.css">
+    <script src="assets/js/header.js" defer></script>
 </head>
 
 <body>
@@ -69,35 +69,18 @@
         <!--loading view-->
 
 <!--****************************** HEADER ******************************-->
-        <header class="site-header">
-            <h1><a href="index.html">Yuki portfolio</a></h1>
-
-            <!--navigation-->
-            <nav class="site-nav">
-                <ul>
-                    <li><a href="index.html" class="is-active" aria-current="page">home</a></li>
-                    <li><a href="about.html">about</a></li>
-                    <li><a href="works.html">works</a></li>
-                </ul>
-            </nav>
-
-            <div class="header-links">
-                <a href="https://github.com/uiharuyuki" class="header-link">
-                    <span>github</span>
-                    <img src="assets/images/icons/arrow-outward.svg" alt="" aria-hidden="true">
-                </a>
-                <a href="https://x.com/U_K_0211" class="header-link">
-                    <span>X</span>
-                    <img src="assets/images/icons/arrow-outward.svg" alt="" aria-hidden="true">
-                </a>
-            </div>
-        </header>
+        <site-header current-page="home"></site-header>
 <!--****************************** HEADER ******************************-->
 
 <!--****************************** MAIN ******************************-->
     <main>
+        <h1 class="visually-hidden">Yuki portfolio</h1>
+
         <section class="first-view">
-            <img src="assets/images/home/mv.png" alt="Yuki portfolio main visual">
+            <picture>
+                <source type="image/webp" srcset="assets/images/home/hero-main-960.webp 960w, assets/images/home/hero-main-1672.webp 1672w" sizes="100vw">
+                <img src="assets/images/home/mv.png" width="1672" height="941" alt="Yuki portfolio main visual" fetchpriority="high" decoding="async">
+            </picture>
         </section>
 
         <section class="works-section" aria-labelledby="works-title">
@@ -107,8 +90,8 @@
                 <div class="works-list">
                     <article class="works-card">
                         <div class="works-media" aria-hidden="true">
-                            <img src="assets/images/home/on-boom_moc-MacBook-Air-M5_2x.png" alt="">
-                            <img src="assets/images/home/moc-iPhone17.png" alt="">
+                            <img src="assets/images/works/vtuber-official/desktop.webp" width="1200" height="754" loading="lazy" decoding="async" alt="">
+                            <img src="assets/images/works/vtuber-official/mobile.webp" width="360" height="728" loading="lazy" decoding="async" alt="">
                         </div>
                         <div class="works-content">
                             <p class="works-category">Web site / Responsive</p>
@@ -120,8 +103,8 @@
 
                     <article class="works-card">
                         <div class="works-media" aria-hidden="true">
-                            <img src="assets/images/home/on-boom_moc-MacBook-Air-M5_2x.png" alt="">
-                            <img src="assets/images/home/moc-iPhone17.png" alt="">
+                            <img src="assets/images/works/katori-tourism/desktop.webp" width="1200" height="754" loading="lazy" decoding="async" alt="">
+                            <img src="assets/images/works/katori-tourism/mobile.webp" width="360" height="728" loading="lazy" decoding="async" alt="">
                         </div>
                         <div class="works-content">
                             <p class="works-category">LP / Branding</p>
@@ -133,8 +116,8 @@
 
                     <article class="works-card">
                         <div class="works-media" aria-hidden="true">
-                            <img src="assets/images/home/on-boom_moc-MacBook-Air-M5_2x.png" alt="">
-                            <img src="assets/images/home/moc-iPhone17.png" alt="">
+                            <img src="assets/images/works/recipe-search/desktop.webp" width="1200" height="754" loading="lazy" decoding="async" alt="">
+                            <img src="assets/images/works/recipe-search/mobile.webp" width="360" height="728" loading="lazy" decoding="async" alt="">
                         </div>
                         <div class="works-content">
                             <p class="works-category">Web app / Search</p>
@@ -146,8 +129,8 @@
 
                     <article class="works-card">
                         <div class="works-media" aria-hidden="true">
-                            <img src="assets/images/home/on-boom_moc-MacBook-Air-M5_2x.png" alt="">
-                            <img src="assets/images/home/moc-iPhone17.png" alt="">
+                            <img src="assets/images/works/yuki-portfolio/desktop.webp" width="1200" height="675" loading="lazy" decoding="async" alt="">
+                            <img src="assets/images/works/yuki-portfolio/mobile.webp" width="360" height="203" loading="lazy" decoding="async" alt="">
                         </div>
                         <div class="works-content">
                             <p class="works-category">Portfolio / Personal</p>
@@ -168,7 +151,7 @@
 
                 <div class="about-inner">
                     <div class="about-image">
-                        <img src="assets/images/about/profile.png" alt="内山 倖徳のプロフィール画像">
+                        <img src="assets/images/about/profile-640.webp" width="640" height="853" loading="lazy" decoding="async" alt="内山 倖徳のプロフィール画像">
                     </div>
 
                     <div class="about-content">
@@ -199,16 +182,10 @@
             </ul>
         </nav>
 
-        <small class="footer-copyright">&copy;2026 YukiPortfolio</small>
+        <small class="footer-copyright">&copy;2026 Yuki Portfolio</small>
     </footer>
 <!--****************************** FOOTER ******************************-->
     </div>
 
-    <!-- Import JS -->
-    <script src="assets/js/header.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/component.js"></script>
-    <!-- Import JS home -->
-    <script src="assets/js/pages/home.js"></script>
 </body>
 </html>

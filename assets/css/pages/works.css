@@ -77,13 +77,6 @@
     line-height: 1.45;
 }
 
-.works-page-link {
-    width: fit-content;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1;
-}
-
 @media (max-width: 1024px) {
     .works-page-card {
         gap: 40px;
@@ -132,8 +125,7 @@
         font-size: 22px;
     }
 
-    .works-page-content p,
-    .works-page-link {
+    .works-page-content p {
         font-size: 14px;
     }
 }
