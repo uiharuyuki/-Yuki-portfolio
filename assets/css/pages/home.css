@@ -1,0 +1,11 @@
+.first-view {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.first-view img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+}

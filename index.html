@@ -52,34 +52,53 @@
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/common.css">
     <link rel="stylesheet" href="assets/css/component.css">
-
-        <!-- Import CSS home -->
+    <!-- Import CSS home -->
     <link rel="stylesheet" href="assets/css/pages/home.css">
-
 </head>
+
 <body>
+    <div id="page-layout__wrapper">
+        <!--loading view-->
+        <!--loading view-->
 
-    <!-- START Header Area -->
-    <header>
-        <h1>Yuki portfolio</h1>
-    </header>
-    <!-- END Header Area -->
+<!--****************************** HEADER ******************************-->
+        <header class="site-header">
+            <h1><a href="index.html">Yuki portfolio</a></h1>
 
-    <!-- START Main Area -->
-    <main></main>
-    <!-- END Main Area -->
+            <!--navigation-->
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="index.html" class="is-active" aria-current="page">home</a></li>
+                    <li><a href="about.html">about</a></li>
+                    <li><a href="works.html">works</a></li>
+                </ul>
+            </nav>
 
-    <!-- START Footer Area -->
+            <a href="https://github.com/uiharuyuki" class="github-link">
+                <span>github</span>
+                <img src="assets/images/icons/arrow-outward.svg" alt="" aria-hidden="true">
+            </a>
+        </header>
+<!--****************************** HEADER ******************************-->
+
+<!--****************************** MAIN ******************************-->
+    <main>
+        <section class="first-view">
+            <img src="assets/images/home/mv.png" alt="Yuki portfolio main visual">
+        </section>
+    </main>
+<!--****************************** MAIN ******************************-->
+
+<!--****************************** FOOTER ******************************-->
     <footer></footer>
-    <!-- END Footer Area -->
+<!--****************************** FOOTER ******************************-->
+    </div>
 
     <!-- Import JS -->
     <script src="assets/js/header.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/component.js"></script>
-
-        <!-- Import JS home -->
+    <!-- Import JS home -->
     <script src="assets/js/pages/home.js"></script>
-
 </body>
 </html>

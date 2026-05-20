@@ -1,7 +1,69 @@
-/* =====================================================
-   common.css
-===================================================== */
+/******************************* header *******************************/
 
-/* ヘッダー */
+.site-header {
+    position: sticky;
+    top: 0;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 8px;
+/******************************* z-index 1000 *******************************/
+    z-index: 1000;
+}
 
+.site-header h1 {
+    justify-self: start;
+}
 
+.site-nav {
+    justify-self: center;
+}
+
+.site-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    background-color: var(--color-nav-background);
+    border-radius: 999px;
+}
+
+.site-nav a {
+    display: block;
+    padding: 8px;
+    color: var(--color-nav-text);
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.site-nav a.is-active {
+    border-radius: 999px;
+    background-color: var(--color-nav-active-background);
+    color: var(--color-nav-active-text);
+}
+
+.github-link {
+    justify-self: end;
+    align-self: start;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 8px;
+    border: 2px solid var(--color-github-border);
+    border-radius: 999px;
+    background-color: var(--color-github-background);
+    color: var(--color-github-text);
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 0;
+}
+
+.github-link img {
+    width: 14px;
+    height: 14px;
+}
