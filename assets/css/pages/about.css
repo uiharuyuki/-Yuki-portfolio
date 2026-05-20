@@ -1,0 +1,160 @@
+.about-page .page-title {
+    margin-bottom: 36px;
+}
+
+.about-profile__inner {
+    display: grid;
+    grid-template-columns: 320px minmax(0, 1fr);
+    gap: 40px;
+    align-items: center;
+    max-width: 780px;
+    margin-inline: auto;
+}
+
+.about-profile__image img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 8px;
+}
+
+.about-profile__body h2 {
+    margin: 0 0 12px;
+    font-size: 28px;
+    line-height: 1.35;
+}
+
+.about-profile__body p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.skills-section {
+    padding-block: 40px 88px;
+}
+
+.skills-section .container {
+    max-width: 960px;
+}
+
+.skill-panel {
+    max-width: 760px;
+    margin-inline: auto;
+}
+
+.skill-tabs {
+    display: flex;
+    width: fit-content;
+    margin: 0 auto 24px;
+    padding: 4px;
+    border-radius: 999px;
+    background-color: var(--color-nav-background);
+}
+
+.skill-tabs button {
+    padding: 4px 8px;
+    border: 0;
+    border-radius: 999px;
+    background-color: transparent;
+    color: var(--color-nav-text);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: inherit;
+    cursor: pointer;
+}
+
+.skill-tabs button.is-active {
+    background-color: var(--color-base);
+    color: var(--color-text);
+}
+
+.skill-list[hidden] {
+    display: none;
+}
+
+.skill-list {
+    display: grid;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.skill-list li {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 20px;
+    align-items: center;
+}
+
+.skill-list img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.skill-list h2 {
+    margin: 0 0 4px;
+    font-size: 16px;
+    line-height: 1.35;
+}
+
+.skill-list p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.skill-list--split {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 72px;
+}
+
+@media (max-width: 767px) {
+    .about-profile__inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .about-profile__image {
+        max-width: 280px;
+        margin-inline: auto;
+    }
+
+    .about-profile__body {
+        text-align: center;
+    }
+
+    .about-profile__body h2 {
+        font-size: 24px;
+    }
+
+    .about-profile__body p {
+        font-size: 14px;
+    }
+
+    .skills-section {
+        padding-block: 32px 64px;
+    }
+
+    .skill-list,
+    .skill-list--split {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-list li {
+        grid-template-columns: 52px minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .skill-list img {
+        width: 52px;
+        height: 52px;
+    }
+}

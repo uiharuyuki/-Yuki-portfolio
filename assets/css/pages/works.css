@@ -1,0 +1,139 @@
+.works-page .page-title {
+    margin-bottom: 56px;
+}
+
+.works-container {
+    max-width: 1500px;
+}
+
+.works-page-list {
+    display: grid;
+    gap: 48px;
+}
+
+.works-page-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+    gap: 64px;
+    align-items: center;
+    min-height: 380px;
+    padding: 36px 64px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-base);
+}
+
+.works-page-card:nth-child(even) .works-page-media {
+    order: 2;
+}
+
+.works-page-card:nth-child(even) .works-page-content {
+    order: 1;
+}
+
+.works-page-media {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 24px;
+    align-items: end;
+}
+
+.works-page-media img:first-child {
+    width: 100%;
+}
+
+.works-page-media img:last-child {
+    width: 108px;
+}
+
+.works-page-content {
+    display: grid;
+    gap: 20px;
+    align-content: center;
+}
+
+.works-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 13px;
+    line-height: 1.3;
+}
+
+.works-page-content h2 {
+    margin: 0;
+    font-size: 30px;
+    line-height: 1.35;
+}
+
+.works-page-content p {
+    max-width: 520px;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.works-page-link {
+    width: fit-content;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+@media (max-width: 1024px) {
+    .works-page-card {
+        gap: 40px;
+        padding: 32px;
+    }
+
+    .works-page-media img:last-child {
+        width: 82px;
+    }
+}
+
+@media (max-width: 767px) {
+    .works-page .page-title {
+        margin-bottom: 40px;
+    }
+
+    .works-page-list {
+        gap: 28px;
+    }
+
+    .works-page-card {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        gap: 24px;
+        padding: 24px;
+    }
+
+    .works-page-card:nth-child(even) .works-page-media,
+    .works-page-card:nth-child(even) .works-page-content {
+        order: initial;
+    }
+
+    .works-page-media {
+        gap: 12px;
+    }
+
+    .works-page-media img:last-child {
+        width: 56px;
+    }
+
+    .works-page-content {
+        gap: 14px;
+    }
+
+    .works-page-content h2 {
+        font-size: 22px;
+    }
+
+    .works-page-content p,
+    .works-page-link {
+        font-size: 14px;
+    }
+}

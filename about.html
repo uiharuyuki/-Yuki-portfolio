@@ -13,6 +13,12 @@
     <link rel="icon" href="">
     <link rel="apple-touch-icon" href="">
 
+    <!-- Import Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@4.1.1/dist/css/yakuhanjp.css">
+
     <link rel="stylesheet" href="assets/css/kiso.css">
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/common.css">
@@ -36,16 +42,123 @@
                 </ul>
             </nav>
 
-            <a href="https://github.com/uiharuyuki" class="github-link">
-                <span>github</span>
-                <img src="assets/images/icons/arrow-outward.svg" alt="" aria-hidden="true">
-            </a>
+            <div class="header-links">
+                <a href="https://github.com/uiharuyuki" class="header-link">
+                    <span>github</span>
+                    <img src="assets/images/icons/arrow-outward.svg" alt="" aria-hidden="true">
+                </a>
+                <a href="https://x.com/U_K_0211" class="header-link">
+                    <span>X</span>
+                    <img src="assets/images/icons/arrow-outward.svg" alt="" aria-hidden="true">
+                </a>
+            </div>
         </header>
 
-        <main class="page-main">
-            <section class="page-placeholder" aria-labelledby="about-title">
-                <h1 id="about-title" class="page-title">ABOUT</h1>
-                <p>プロフィールページは現在準備中です。</p>
+        <main class="page-main about-page">
+            <section class="about-profile" aria-labelledby="about-title">
+                <div class="container">
+                    <h1 id="about-title" class="page-title">ABOUT</h1>
+
+                    <div class="about-profile__inner">
+                        <div class="about-profile__image">
+                            <img src="assets/images/about/profile.png" alt="内山 倖徳のプロフィール画像">
+                        </div>
+
+                        <div class="about-profile__body">
+                            <h2>内山 倖徳</h2>
+                            <p>
+                                2006年に生まれ、千葉県で育ちました。<br>
+                                高校生活でデザインに興味を持ち、専門学校ではWeb制作に心を惹かれ、<br>
+                                Webを中心に取り組んできました。<br>
+                                現在、Web制作会社で勤務することを目標に就活中です。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="skills-section" aria-label="Skills">
+                <div class="container">
+                    <div class="skill-panel">
+                        <div class="skill-tabs" role="tablist" aria-label="skill categories">
+                            <button type="button" id="skill-tab-coding" class="is-active" role="tab" aria-selected="true" aria-controls="skill-panel-coding" data-skill-tab="coding">coding</button>
+                            <button type="button" id="skill-tab-design" role="tab" aria-selected="false" aria-controls="skill-panel-design" data-skill-tab="design">design</button>
+                            <button type="button" id="skill-tab-ai" role="tab" aria-selected="false" aria-controls="skill-panel-ai" data-skill-tab="ai">ai</button>
+                        </div>
+
+                        <ul class="skill-list" id="skill-panel-coding" role="tabpanel" aria-labelledby="skill-tab-coding" data-skill-panel="coding">
+                            <li>
+                                <img src="assets/images/about/skills/html.svg" alt="" aria-hidden="true">
+                                <div>
+                                    <h2>HTML</h2>
+                                    <p>意味のある構造とアクセシビリティを意識し、複数ページで扱いやすいマークアップを行います。</p>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="assets/images/about/skills/css.svg" alt="" aria-hidden="true">
+                                <div>
+                                    <h2>CSS</h2>
+                                    <p>レスポンシブ対応や共通部品の整理を含め、読みやすく保守しやすいスタイル設計を心がけています。</p>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="assets/images/about/skills/javascript.svg" alt="" aria-hidden="true">
+                                <div>
+                                    <h2>JavaScript</h2>
+                                    <p>ページ内の操作や表示切り替えなど、必要な動きを軽量に実装できます。</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <ul class="skill-list" id="skill-panel-design" role="tabpanel" aria-labelledby="skill-tab-design" data-skill-panel="design" hidden>
+                            <li>
+                                <img src="assets/images/about/skills/figma.svg" alt="" aria-hidden="true">
+                                <div>
+                                    <h2>Figma</h2>
+                                    <p>ワイヤーフレーム、ページデザイン、コンポーネント整理まで一連の制作に使用しています。</p>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="assets/images/about/skills/illustrator.svg" alt="" aria-hidden="true">
+                                <div>
+                                    <h2>Illustrator</h2>
+                                    <p>ロゴやアイコンなど、Webサイト内で使うベクター素材の作成に使用しています。</p>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="assets/images/about/skills/photoshop.svg" alt="" aria-hidden="true">
+                                <div>
+                                    <h2>Photoshop</h2>
+                                    <p>写真の補正や切り抜き、Web用画像の調整に使用しています。</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <ul class="skill-list skill-list--split" id="skill-panel-ai" role="tabpanel" aria-labelledby="skill-tab-ai" data-skill-panel="ai" hidden>
+                            <li>
+                                <img src="assets/images/about/skills/chatgpt.svg" alt="" aria-hidden="true">
+                                <div>
+                                    <h2>ChatGPT</h2>
+                                    <p>実装方針の整理、文章作成、コードレビューの補助に活用しています。</p>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="assets/images/about/skills/claude.svg" alt="" aria-hidden="true">
+                                <div>
+                                    <h2>Claude</h2>
+                                    <p>長い文章や設計内容の整理、制作物の改善案出しに活用しています。</p>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="assets/images/about/skills/gemini.svg" alt="" aria-hidden="true">
+                                <div>
+                                    <h2>Gemini</h2>
+                                    <p>調査内容の比較やアイデアの幅出しに使用しています。</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </section>
         </main>
 
