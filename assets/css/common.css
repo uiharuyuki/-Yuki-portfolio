@@ -1,10 +1,40 @@
 /******************************* header *******************************/
+.page-frame-blur {
+    position: fixed;
+    inset: 0;
+    z-index: 1990;
+    padding: var(--page-frame-space);
+    pointer-events: none;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+}
+
+.page-frame {
+    position: fixed;
+    inset: var(--page-frame-space);
+    z-index: 2000;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+#page-layout__wrapper {
+    padding: var(--page-frame-space);
+}
+
 .site-header {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
+    top: var(--page-frame-space);
+    left: var(--page-frame-space);
+    right: var(--page-frame-space);
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     align-items: center;

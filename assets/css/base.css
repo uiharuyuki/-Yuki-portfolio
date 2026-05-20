@@ -19,6 +19,7 @@
     --color-github-background: #ffffff;
     --color-github-border: #000000;
     --color-github-text: #000000;
+    --page-frame-space: 24px;
 }
 
 html {
