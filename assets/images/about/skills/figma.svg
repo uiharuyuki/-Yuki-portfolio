@@ -1,10 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Figma">
-  <circle cx="25" cy="14" r="10" fill="#ff4d3d"/>
-  <circle cx="39" cy="14" r="10" fill="#ff7b39"/>
-  <circle cx="25" cy="32" r="10" fill="#8a4cff"/>
-  <circle cx="39" cy="32" r="10" fill="#10aee8"/>
-  <circle cx="25" cy="50" r="10" fill="#23c96b"/>
-  <rect x="25" y="4" width="14" height="20" fill="#ff6a3a"/>
-  <rect x="25" y="22" width="14" height="20" fill="#4f78ff"/>
-  <rect x="15" y="22" width="10" height="38" fill="#7a45f5"/>
-</svg>
+<svg height="1em" style="flex:none;line-height:1" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><title>Figma</title><path d="M4 20a4 4 0 014-4h4v4a4 4 0 01-8 0z" fill="#24CB71"></path><path d="M12 0v8h4a4 4 0 000-8h-4z" fill="#FF7237"></path><path d="M15.967 16a4 4 0 100-8 4 4 0 000 8z" fill="#00B6FF"></path><path d="M4 4a4 4 0 004 4h4V0H8a4 4 0 00-4 4z" fill="#FF3737"></path><path d="M4 12a4 4 0 004 4h4V8H8a4 4 0 00-4 4z" fill="#874FFF"></path></svg>
