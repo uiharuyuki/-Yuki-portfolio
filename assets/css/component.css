@@ -103,11 +103,19 @@
     }
 
     .works-media {
-        gap: 12px;
+        position: relative;
+        display: block;
+    }
+
+    .works-media img:first-child {
+        width: 100%;
     }
 
     .works-media img:last-child {
-        width: 56px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 28%;
     }
 }
 /******************************* works card *******************************/
