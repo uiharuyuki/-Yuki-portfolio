@@ -41,6 +41,8 @@
     padding: 8px;
 /******************************* z-index 1000 *******************************/
     z-index: 1000;
+    /* モバイルメニューの基準点 */
+    isolation: isolate;
 }
 
 .site-brand {
@@ -164,45 +166,132 @@
     line-height: 1;
 }
 
+/* ハンバーガーボタン・モバイルメニュー（常時定義） */
+.header-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    border: 1px solid var(--color-header-control-border);
+    border-radius: 999px;
+    background-color: var(--color-header-link-background);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    box-shadow: var(--shadow-header-control);
+    cursor: pointer;
+}
+
+.burger-bar {
+    display: block;
+    width: 16px;
+    height: 1.5px;
+    background-color: var(--color-header-link-text);
+    border-radius: 999px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    transform-origin: center;
+}
+
+.header-menu-toggle[aria-expanded="true"] .burger-bar:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+}
+.header-menu-toggle[aria-expanded="true"] .burger-bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.header-menu-toggle[aria-expanded="true"] .burger-bar:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+}
+
+.mobile-nav-menu {
+    display: none;
+}
+
 @media (max-width: 767px) {
     .site-header {
         grid-template-columns: minmax(0, 1fr) auto;
-        grid-template-areas:
-            "brand links"
-            "nav nav";
-        row-gap: 8px;
+        align-items: center;
+        padding: 8px 8px 10px;
     }
 
     .site-brand {
-        grid-area: brand;
-        font-size: 22px;
+        font-size: 20px;
     }
 
-    .site-nav {
-        grid-area: nav;
-        max-width: 100%;
-        overflow-x: auto;
-    }
-
-    .site-nav ul {
-        gap: 4px;
-        padding: 4px;
-    }
-
-    .site-nav a {
-        padding: 8px;
-        font-size: 14px;
-    }
-
+    /* PCナビとリンクを非表示 */
+    .site-nav,
     .header-links {
-        grid-area: links;
-        align-self: center;
-        gap: 6px;
+        display: none;
     }
 
-    .header-link {
-        padding: 7px;
-        font-size: 12px;
+    /* ハンバーガーボタンを表示 */
+    .header-menu-toggle {
+        display: flex;
+    }
+
+    /* モバイルメニュー */
+    .mobile-nav-menu {
+        display: block;
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        right: 0;
+        padding: 12px;
+        background-color: var(--color-nav-background);
+        backdrop-filter: blur(20px) saturate(150%);
+        -webkit-backdrop-filter: blur(20px) saturate(150%);
+        border: 1px solid var(--color-header-control-border);
+        border-radius: 12px;
+        box-shadow: var(--shadow-header-control);
+        /* 閉じた状態 */
+        opacity: 0;
+        transform: translateY(-8px);
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .mobile-nav-menu[aria-hidden="false"] {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .mobile-nav-menu nav ul {
+        display: flex;
+        justify-content: center;
+        gap: 4px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .mobile-nav-menu nav a {
+        display: block;
+        padding: 10px 14px;
+        font-weight: 700;
+        font-size: 14px;
+        text-transform: uppercase;
+        color: var(--color-nav-text);
+        border-radius: 999px;
+        line-height: 1;
+    }
+
+    .mobile-nav-menu nav a.is-active {
+        background-color: var(--color-nav-active-background);
+        color: var(--color-nav-active-text);
+        box-shadow: inset 0 1px 0 var(--color-header-control-border);
+    }
+
+    .mobile-nav-links {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid var(--color-header-control-border);
     }
 
     .site-footer {
