@@ -1,9 +1,34 @@
+html.contact-document {
+    height: 100%;
+    overflow: hidden;
+}
+
+html.contact-document body {
+    height: 100%;
+    overflow: hidden;
+}
+
+html.contact-document #page-layout__wrapper {
+    position: relative;
+    height: 100dvh;
+    overflow: hidden;
+}
+
 .contact-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100dvh - (var(--page-frame-space) * 2));
+    min-height: 0;
+    padding-block: 0;
     background-color: var(--color-surface);
     text-align: center;
 }
 
 .contact-page .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     max-width: 600px;
 }
 
@@ -13,6 +38,11 @@
 
 /* contact-page 直後のフッターも同色 */
 .contact-page + .site-footer {
+    position: fixed;
+    right: var(--page-frame-space);
+    bottom: var(--page-frame-space);
+    left: var(--page-frame-space);
+    z-index: 900;
     background-color: var(--color-surface);
 }
 
@@ -20,7 +50,10 @@
 .contact-mail-group {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 10px;
+    max-width: 100%;
     margin-bottom: 12px;
 }
 

@@ -88,21 +88,13 @@
     line-height: 1;
 }
 
-/* ワークスカード〜ページフレームの距離をclampで可変(480px:16px〜1080px:32px) */
-@media (max-width: 1080px) {
-    .works-section .container {
-        width: 100%;
-        padding-inline: clamp(16px, calc(2.667vw + 3.2px), 32px);
-    }
-}
-
 @media (max-width: 767px) {
     .works-section {
-        padding-block: 56px;
+        padding-block: 56px clamp(24px, calc(5.333vw - 1.6px), 56px);
     }
 
     .about-section {
-        padding-block: 64px;
+        padding-block: clamp(32px, calc(5.333vw + 6.4px), 64px) 64px;
     }
 
     .about-section h2 {

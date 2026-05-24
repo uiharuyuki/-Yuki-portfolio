@@ -145,7 +145,9 @@
     letter-spacing: 0;
 }
 
-.header-link img {
+.header-link svg {
+    display: block;
+    flex: 0 0 auto;
     width: 14px;
     height: 14px;
 }
@@ -200,19 +202,22 @@
 .cursor-ring {
     display: none;
     position: fixed;
-    width: 26px;
-    height: 26px;
-    border: 1.5px solid var(--color-text);
+    width: 22px;
+    height: 22px;
+    border: 1px solid var(--color-cursor-ring);
     border-radius: 50%;
+    background-color: var(--color-cursor-core);
+    box-shadow: var(--shadow-cursor);
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
-    transition: width 0.18s ease, height 0.18s ease, border-color 0.18s ease;
+    transition: width 0.18s ease, height 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
 }
 
 .cursor-ring.is-hovering {
-    width: 42px;
-    height: 42px;
+    width: 34px;
+    height: 34px;
+    box-shadow: var(--shadow-cursor);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -261,23 +266,29 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
-    width: 40px;
-    height: 40px;
-    padding: 8px;
-    border: 1px solid var(--color-border);
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 1px solid var(--color-header-link-border);
     border-radius: 999px;
     background-color: var(--color-header-link-background);
+    color: var(--color-header-link-text);
     backdrop-filter: blur(16px) saturate(140%);
     -webkit-backdrop-filter: blur(16px) saturate(140%);
     box-shadow: var(--shadow-header-control);
     cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.header-menu-toggle:hover {
+    opacity: 0.75;
 }
 
 .burger-bar {
     display: block;
     width: 16px;
     height: 1.5px;
-    background-color: var(--color-header-link-text);
+    background-color: currentColor;
     border-radius: 999px;
 }
 
@@ -331,7 +342,7 @@
         pointer-events: auto;
     }
 
-    /* モバイルメニュー（中央寄せ・黒枠） */
+    /* モバイルメニュー（中央寄せ） */
     .mobile-nav-menu {
         display: block;
         position: fixed;
@@ -343,7 +354,7 @@
         background-color: var(--color-nav-background);
         backdrop-filter: blur(20px) saturate(150%);
         -webkit-backdrop-filter: blur(20px) saturate(150%);
-        border: 1px solid var(--color-border);
+        border: 0;
         border-radius: 16px;
         box-shadow: var(--shadow-header-control);
         z-index: 2;

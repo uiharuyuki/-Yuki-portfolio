@@ -36,20 +36,44 @@
 /******************************* works tags *******************************/
 
 /******************************* works card *******************************/
+.works-container {
+    max-width: 1200px;
+}
+
+/* ワークスカード〜ページフレームの距離をclampで可変(480px:16px〜1080px:32px) */
+@media (max-width: 1080px) {
+    .works-container {
+        width: 100%;
+        padding-inline: clamp(16px, calc(2.667vw + 3.2px), 32px);
+    }
+}
+
 .works-list {
     display: grid;
     gap: clamp(16px, calc(2vw + 6.4px), 28px);
 }
 
 .works-card {
+    --works-media-column: minmax(0, 1fr);
+    --works-content-column: minmax(260px, 0.82fr);
+    --works-media-height: clamp(220px, calc(8.333vw + 180px), 270px);
+    --works-submedia-width: clamp(92px, calc(3.833vw + 73.6px), 115px);
+    --works-submedia-height: clamp(194px, calc(7.333vw + 158.8px), 238px);
+    --works-submedia-overlap: clamp(18px, calc(2.333vw + 6.8px), 32px);
+
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.82fr);
+    grid-template-columns: var(--works-media-column) var(--works-content-column);
     gap: 40px;
     align-items: center;
+    min-height: calc(var(--works-media-height) + 48px);
     padding: 24px 56px;
     border: 1px solid var(--color-border);
     border-radius: 8px;
     background-color: var(--color-base);
+}
+
+.works-card:nth-child(even) {
+    grid-template-columns: var(--works-content-column) var(--works-media-column);
 }
 
 .works-card:nth-child(even) .works-media {
@@ -62,17 +86,26 @@
 
 .works-media {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) var(--works-submedia-width);
     align-items: end;
-    gap: 20px;
+    gap: 0;
+    min-height: var(--works-media-height);
 }
 
 .works-media img:first-child {
     width: 100%;
+    height: var(--works-media-height);
+    object-fit: contain;
+    object-position: center bottom;
 }
 
 .works-media img:last-child {
-    width: 74px;
+    width: 100%;
+    height: var(--works-submedia-height);
+    object-fit: contain;
+    object-position: center bottom;
+    transform: translateX(calc(var(--works-submedia-overlap) * -1));
+    z-index: 1;
 }
 
 .works-content {
@@ -105,10 +138,20 @@
 
 @media (max-width: 767px) {
     .works-card {
+        --works-media-height: auto;
+        --works-submedia-width: 28%;
+        --works-submedia-height: auto;
+        --works-submedia-overlap: 0;
+
         grid-template-columns: 1fr;
         gap: 20px;
+        min-height: 0;
         padding-block: 24px;
         padding-inline: clamp(12px, calc(2vw + 2.4px), 24px);
+    }
+
+    .works-card:nth-child(even) {
+        grid-template-columns: 1fr;
     }
 
     .works-card:nth-child(even) .works-media,
@@ -119,10 +162,12 @@
     .works-media {
         position: relative;
         display: block;
+        min-height: 0;
     }
 
     .works-media img:first-child {
         width: 100%;
+        height: auto;
     }
 
     .works-media img:last-child {
@@ -130,6 +175,8 @@
         right: 0;
         bottom: 0;
         width: 28%;
+        height: auto;
+        transform: none;
     }
 }
 /******************************* works card *******************************/

@@ -2,10 +2,6 @@
     margin-bottom: 56px;
 }
 
-.works-container {
-    max-width: 1500px;
-}
-
 @media (max-width: 767px) {
     .works-page .page-title {
         margin-bottom: 40px;

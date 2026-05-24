@@ -1,3 +1,8 @@
+.about-page {
+    min-height: 0;
+    padding-bottom: 0;
+}
+
 .about-page .page-title {
     margin-bottom: 36px;
 }
@@ -169,15 +174,30 @@
 
 /* ========== Contact セクション（about.html 固有） ========== */
 .contact-section {
-    background-color: var(--color-surface);
+    --contact-curve-height: clamp(48px, calc(5.33vw + 22.4px), 80px);
+    position: relative;
+    isolation: isolate;
+    background-color: transparent;
     padding-block: 72px 56px;
     text-align: center;
 }
 
-.contact-section h2 {
-    margin: 0 0 14px;
-    font-size: 48px;
-    line-height: 1;
+.contact-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.contact-section::before {
+    content: "";
+    position: absolute;
+    top: calc(var(--contact-curve-height) * -1);
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: calc(100% + var(--contact-curve-height));
+    border-radius: 50% 50% 0 0 / var(--contact-curve-height) var(--contact-curve-height) 0 0;
+    background-color: var(--color-surface);
+    pointer-events: none;
 }
 
 /* contact-section の直後のフッターだけサーフェスカラーを適用 */
@@ -188,9 +208,5 @@
 @media (max-width: 767px) {
     .contact-section {
         padding-block: 52px 40px;
-    }
-
-    .contact-section h2 {
-        font-size: 36px;
     }
 }

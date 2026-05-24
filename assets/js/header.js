@@ -1,5 +1,6 @@
 const MOON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
 const SUN_SVG  = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>`;
+const ARROW_OUTWARD_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z"/></svg>`;
 
 class SiteHeader extends HTMLElement {
     connectedCallback() {
@@ -32,11 +33,11 @@ class SiteHeader extends HTMLElement {
                     <div class="header-links">
                         <a href="https://github.com/uiharuyuki" class="header-link" target="_blank" rel="noopener noreferrer">
                             <span>github</span>
-                            <img src="assets/images/icons/arrow-outward.svg" width="14" height="14" alt="" aria-hidden="true">
+                            ${ARROW_OUTWARD_SVG}
                         </a>
                         <a href="https://x.com/U_K_0211" class="header-link" target="_blank" rel="noopener noreferrer">
                             <span>X</span>
-                            <img src="assets/images/icons/arrow-outward.svg" width="14" height="14" alt="" aria-hidden="true">
+                            ${ARROW_OUTWARD_SVG}
                         </a>
                     </div>
 
@@ -56,11 +57,11 @@ class SiteHeader extends HTMLElement {
                     <div class="mobile-nav-links">
                         <a href="https://github.com/uiharuyuki" class="header-link" target="_blank" rel="noopener noreferrer">
                             <span>github</span>
-                            <img src="assets/images/icons/arrow-outward.svg" width="14" height="14" alt="" aria-hidden="true">
+                            ${ARROW_OUTWARD_SVG}
                         </a>
                         <a href="https://x.com/U_K_0211" class="header-link" target="_blank" rel="noopener noreferrer">
                             <span>X</span>
-                            <img src="assets/images/icons/arrow-outward.svg" width="14" height="14" alt="" aria-hidden="true">
+                            ${ARROW_OUTWARD_SVG}
                         </a>
                     </div>
                 </div>
