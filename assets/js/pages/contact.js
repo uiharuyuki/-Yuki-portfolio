@@ -1,0 +1,48 @@
+(function () {
+    var btn = document.querySelector(".contact-copy");
+    if (!btn) return;
+
+    var EMAIL = "nirayuki15@gmail.com";
+
+    var COPY_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+    var CHECK_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>';
+
+    var timer = null;
+
+    btn.addEventListener("click", function () {
+        if (timer) return; // 連打防止
+
+        navigator.clipboard.writeText(EMAIL).then(function () {
+            btn.innerHTML = CHECK_ICON;
+            btn.classList.add("is-copied");
+            btn.setAttribute("aria-label", "コピーしました");
+
+            timer = setTimeout(function () {
+                btn.innerHTML = COPY_ICON;
+                btn.classList.remove("is-copied");
+                btn.setAttribute("aria-label", "メールアドレスをコピー");
+                timer = null;
+            }, 2000);
+        }).catch(function () {
+            // clipboard API 非対応環境のフォールバック
+            var ta = document.createElement("textarea");
+            ta.value = EMAIL;
+            ta.style.cssText = "position:fixed;opacity:0";
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand("copy");
+            document.body.removeChild(ta);
+
+            btn.innerHTML = CHECK_ICON;
+            btn.classList.add("is-copied");
+            btn.setAttribute("aria-label", "コピーしました");
+
+            timer = setTimeout(function () {
+                btn.innerHTML = COPY_ICON;
+                btn.classList.remove("is-copied");
+                btn.setAttribute("aria-label", "メールアドレスをコピー");
+                timer = null;
+            }, 2000);
+        });
+    });
+})();

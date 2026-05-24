@@ -1,4 +1,5 @@
 .contact-page {
+    background-color: var(--color-surface);
     text-align: center;
 }
 
@@ -8,4 +9,56 @@
 
 .contact-page .page-title {
     margin-bottom: 20px;
+}
+
+/* contact-page 直後のフッターも同色 */
+.contact-page + .site-footer {
+    background-color: var(--color-surface);
+}
+
+/* メール + コピーボタンをまとめる行 */
+.contact-mail-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+/* グループ内では contact-mail 自身の margin-bottom を消す */
+.contact-mail-group .contact-mail {
+    margin-bottom: 0;
+}
+
+/* コピーボタン */
+.contact-copy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 1.5px solid var(--color-border);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: opacity 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-copy:hover {
+    opacity: 0.6;
+}
+
+.contact-copy.is-copied {
+    color: #4caf82;
+    border-color: #4caf82;
+}
+
+/* 返信目安 */
+.contact-reply-note {
+    margin: 0 0 36px;
+    font-size: 12px;
+    font-weight: 700;
+    opacity: 0.45;
 }
