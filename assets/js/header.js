@@ -5,9 +5,10 @@ class SiteHeader extends HTMLElement {
     connectedCallback() {
         const currentPage = this.getAttribute("current-page") || "";
         const navItems = [
-            { id: "home",  href: "index.html",  label: "home"  },
-            { id: "about", href: "about.html",  label: "about" },
-            { id: "works", href: "works.html",  label: "works" },
+            { id: "home",    href: "index.html",    label: "home"    },
+            { id: "about",   href: "about.html",    label: "about"   },
+            { id: "works",   href: "works.html",    label: "works"   },
+            { id: "contact", href: "contact.html",  label: "contact" },
         ];
 
         const makeNavLinks = (items) => items.map((item) => {

@@ -1,0 +1,11 @@
+.contact-page {
+    text-align: center;
+}
+
+.contact-page .container {
+    max-width: 600px;
+}
+
+.contact-page .page-title {
+    margin-bottom: 20px;
+}

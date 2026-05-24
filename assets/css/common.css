@@ -160,7 +160,7 @@
         "brand copyright spacer";
     align-items: start;
     padding-block: 16px 12px;
-    background-color: var(--color-surface);
+    background-color: var(--color-base);
 }
 
 .footer-brand {
