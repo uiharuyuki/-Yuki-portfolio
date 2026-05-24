@@ -131,9 +131,23 @@
 }
 
 .works-detail {
-    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    justify-self: end;
     font-size: 12px;
     line-height: 1;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    transition: opacity 0.2s ease;
+}
+
+.works-detail:hover {
+    opacity: 0.55;
+}
+
+.works-detail svg {
+    flex-shrink: 0;
 }
 
 @media (max-width: 767px) {

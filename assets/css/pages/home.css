@@ -82,11 +82,6 @@
     line-height: 1.45;
 }
 
-.about-content a {
-    width: fit-content;
-    font-size: 14px;
-    line-height: 1;
-}
 
 @media (max-width: 767px) {
     .works-section {
