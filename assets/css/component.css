@@ -1,7 +1,7 @@
 /******************************* page *******************************/
 .page-main {
     min-height: calc(100vh - (var(--page-frame-space) * 2));
-    padding-block: 120px 80px;
+    padding-block: clamp(72px, calc(8vw + 33.6px), 120px) 80px;
 }
 
 .page-title {
