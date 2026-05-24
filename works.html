@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    <script>!function(){var t=localStorage.getItem('yuki-theme');t?document.documentElement.setAttribute('data-theme',t):window.matchMedia('(prefers-color-scheme:dark)').matches&&document.documentElement.setAttribute('data-theme','dark')}();</script>
+    <script>!function(){if(!sessionStorage.getItem('yuki-loaded'))return;var t=localStorage.getItem('yuki-theme');t?document.documentElement.setAttribute('data-theme',t):window.matchMedia('(prefers-color-scheme:dark)').matches&&document.documentElement.setAttribute('data-theme','dark')}();</script>
     <title>Works | Yuki Portfolio</title>
     <meta name="author" content="内山 倖徳">
     <meta name="description" content="Yukiの制作実績を掲載するページです。">
@@ -47,7 +47,7 @@
 
 <body>
     <div id="loading-overlay" aria-hidden="true">
-        <img src="assets/images/icons/favicon.svg" width="120" height="120" alt="" aria-hidden="true">
+        <img src="assets/images/loading/yuki-loading.gif" width="784" height="1176" alt="" aria-hidden="true">
         <p>Yuki portfolio</p>
     </div>
     <div class="page-frame-blur" aria-hidden="true"></div>

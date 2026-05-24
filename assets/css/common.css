@@ -230,7 +230,8 @@
     position: fixed;
     inset: 0;
     z-index: 10000;
-    background-color: var(--color-base);
+    background-color: var(--color-loading-background);
+    color: var(--color-loading-text);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -240,8 +241,9 @@
 }
 
 #loading-overlay img {
-    width: 100px;
-    height: 100px;
+    width: clamp(180px, calc(13.33vw + 116px), 260px);
+    height: auto;
+    max-height: 58vh;
     object-fit: contain;
 }
 
@@ -251,7 +253,7 @@
     font-weight: 700;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--color-text);
+    color: currentColor;
 }
 
 #loading-overlay.is-hiding {
