@@ -27,7 +27,7 @@
         <!-- サイト全体の名前 -->
     <meta property="og:site_name" content="Yuki Portfolio">
         <!-- SNSカードに表示する画像、絶対URLで指定する。推奨は1200×630px -->
-    <meta property="og:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/home/mv.png">
+    <meta property="og:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/home/hero-main.jpg">
         <!-- ページの言語・地域 -->
     <meta property="og:locale" content="ja_JP">
 
@@ -43,7 +43,7 @@
         <!-- Xカード用説明文 -->
     <meta name="twitter:description" content="Web制作を中心に学習しているYukiのポートフォリオサイトです。これまでの制作実績やスキル、自己紹介などを掲載しています。">
         <!-- Xカード用画像、絶対URLで指定する。推奨は1200×630px -->
-    <meta name="twitter:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/home/mv.png">
+    <meta name="twitter:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/home/hero-main.jpg">
 
     <!-- Import Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -84,7 +84,8 @@
 
         <section class="first-view">
             <picture>
-                <img src="assets/images/home/hero-main.png" width="1672" height="941" alt="Yuki portfolio main visual" fetchpriority="high" decoding="async">
+                <source type="image/webp" srcset="assets/images/home/hero-main-960.webp 960w, assets/images/home/hero-main-1672.webp 1672w" sizes="100vw">
+                <img src="assets/images/home/hero-main.jpg" width="1672" height="941" alt="Yuki portfolio main visual" fetchpriority="high" decoding="async">
             </picture>
         </section>
 
@@ -108,8 +109,8 @@
 
                     <article class="works-card">
                         <div class="works-media" aria-hidden="true">
-                            <img src="assets/images/works/katori-tourism/desktop.png" width="1761" height="1106" loading="lazy" decoding="async" alt="">
-                            <img src="assets/images/works/katori-tourism/mobile.png" width="488" height="987" loading="lazy" decoding="async" alt="">
+                            <img src="assets/images/works/katori-tourism/desktop.webp" width="1761" height="1106" loading="lazy" decoding="async" alt="">
+                            <img src="assets/images/works/katori-tourism/mobile.webp" width="488" height="987" loading="lazy" decoding="async" alt="">
                         </div>
                         <div class="works-content">
                             <p class="works-category">LP / Branding</p>
@@ -121,8 +122,8 @@
 
                     <article class="works-card">
                         <div class="works-media" aria-hidden="true">
-                            <img src="assets/images/works/recipe-search/desktop.png" width="1761" height="1106" loading="lazy" decoding="async" alt="">
-                            <img src="assets/images/works/recipe-search/mobile.png" width="488" height="987" loading="lazy" decoding="async" alt="">
+                            <img src="assets/images/works/recipe-search/desktop.webp" width="1761" height="1106" loading="lazy" decoding="async" alt="">
+                            <img src="assets/images/works/recipe-search/mobile.webp" width="488" height="987" loading="lazy" decoding="async" alt="">
                         </div>
                         <div class="works-content">
                             <p class="works-category">Web app / Search</p>
@@ -156,7 +157,7 @@
 
                 <div class="about-inner">
                     <div class="about-image">
-                        <img src="assets/images/about/profile-main.jpg" width="2018" height="3024" loading="lazy" decoding="async" alt="内山 倖徳のプロフィール画像">
+                        <img src="assets/images/about/profile-main.jpg" width="640" height="853" loading="lazy" decoding="async" alt="内山 倖徳のプロフィール画像">
                     </div>
 
                     <div class="about-content">
