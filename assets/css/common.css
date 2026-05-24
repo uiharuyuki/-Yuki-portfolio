@@ -45,6 +45,15 @@
     isolation: isolate;
 }
 
+/* ヘッダー右端：テーマトグル + リンク群 + バーガー */
+.header-end {
+    grid-column: 3;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 .site-brand {
     justify-self: start;
     margin: 0;
@@ -90,10 +99,31 @@
 }
 
 .header-links {
-    justify-self: end;
-    align-self: start;
     display: flex;
     gap: 8px;
+}
+
+/* テーマ切り替えボタン */
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 1px solid var(--color-header-link-border);
+    border-radius: 999px;
+    background-color: var(--color-header-link-background);
+    color: var(--color-header-link-text);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    box-shadow: var(--shadow-header-control);
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.theme-toggle:hover {
+    opacity: 0.75;
 }
 
 .header-link {
@@ -129,8 +159,8 @@
         "brand nav spacer"
         "brand copyright spacer";
     align-items: start;
-    padding-block: 8px 4px;
-    background-color: var(--color-base);
+    padding-block: 16px 12px;
+    background-color: var(--color-surface);
 }
 
 .footer-brand {
@@ -164,6 +194,64 @@
     margin-top: 4px;
     font-size: 8px;
     line-height: 1;
+}
+
+/* ========== カスタムカーソル（デスクトップのみ） ========== */
+.cursor-ring {
+    display: none;
+    position: fixed;
+    width: 26px;
+    height: 26px;
+    border: 1.5px solid var(--color-text);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.18s ease, height 0.18s ease, border-color 0.18s ease;
+}
+
+.cursor-ring.is-hovering {
+    width: 42px;
+    height: 42px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    body, a, button { cursor: none; }
+    .cursor-ring { display: block; }
+}
+
+/* ========== ローディングオーバーレイ ========== */
+#loading-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background-color: var(--color-base);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    transition: opacity 0.5s ease;
+}
+
+#loading-overlay img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+#loading-overlay p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-text);
+}
+
+#loading-overlay.is-hiding {
+    opacity: 0;
+    pointer-events: none;
 }
 
 /* ハンバーガーボタン・モバイルメニュー（常時定義） */
@@ -207,6 +295,10 @@
 
     .site-brand {
         font-size: 20px;
+    }
+
+    .header-end {
+        grid-column: 2;
     }
 
     /* PCナビとリンクを非表示 */

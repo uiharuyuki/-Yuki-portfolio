@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
+    <script>!function(){var t=localStorage.getItem('yuki-theme');t?document.documentElement.setAttribute('data-theme',t):window.matchMedia('(prefers-color-scheme:dark)').matches&&document.documentElement.setAttribute('data-theme','dark')}();</script>
     <title>ポートフォリオサイト | Works | Yuki Portfolio</title>
     <meta name="author" content="内山 倖徳">
     <meta name="description" content="個人制作のポートフォリオサイトの制作実績です。">
@@ -38,9 +39,14 @@
     <link rel="stylesheet" href="assets/css/component.css">
     <link rel="stylesheet" href="assets/css/pages/work-detail.css">
     <script src="assets/js/header.js" defer></script>
+    <script src="assets/js/loading.js" defer></script>
 </head>
 
 <body>
+    <div id="loading-overlay" aria-hidden="true">
+        <img src="assets/images/loading.gif" width="120" height="120" alt="" aria-hidden="true">
+        <p>Yuki portfolio</p>
+    </div>
     <div class="page-frame-blur" aria-hidden="true"></div>
     <div class="page-frame" aria-hidden="true"></div>
 

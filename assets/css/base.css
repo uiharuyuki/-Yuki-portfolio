@@ -8,6 +8,7 @@
     --color-text: black;        /* 文字基本（黒） */
     --color-border: black;      /* ボーダー（必要ならtextとわける） */
     --color-gray: #efefef;      /* サブ背景や区切りに使うグレー */
+    --color-surface: #eef3f7;   /* フッター・コンタクト背景 */
 
     /* === アクセントカラー === */
     --color-accent: #00c3f4;    /* ポイントに使う水色系アクセント */
@@ -23,6 +24,25 @@
     --shadow-header-control: 0 10px 28px rgb(20 55 75 / 12%), inset 0 1px 0 rgb(255 255 255 / 70%);
     --page-frame-space: clamp(8px, 2.22vw, 24px);
     --font-base: YakuHanJP, "Albert Sans", "Zen Kaku Gothic New", sans-serif;
+}
+
+/* ========== ダークモード ========== */
+[data-theme="dark"] {
+    --color-base: #111111;
+    --color-text: #e4e4e4;
+    --color-border: #b8b8b8;
+    --color-gray: #1e1e1e;
+    --color-surface: #181c22;
+    --color-header-background: #111111;
+    --color-nav-background: rgb(14 28 44 / 92%);
+    --color-nav-text: rgb(210 228 243 / 92%);
+    --color-nav-active-background: rgb(255 255 255 / 12%);
+    --color-nav-active-text: #f0f0f0;
+    --color-header-control-border: rgb(160 200 230 / 18%);
+    --color-header-link-background: rgb(14 28 44 / 92%);
+    --color-header-link-border: rgb(160 200 230 / 18%);
+    --color-header-link-text: rgb(210 228 243 / 92%);
+    --shadow-header-control: 0 10px 28px rgb(0 0 0 / 55%), inset 0 1px 0 rgb(255 255 255 / 5%);
 }
 
 html {

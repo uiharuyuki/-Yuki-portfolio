@@ -166,3 +166,57 @@
         height: 52px;
     }
 }
+
+/* ========== Contact セクション ========== */
+.contact-section {
+    background-color: var(--color-surface);
+    padding-block: 72px 56px;
+    text-align: center;
+}
+
+.contact-section h2 {
+    margin: 0 0 14px;
+    font-size: 48px;
+    line-height: 1;
+}
+
+.contact-lead {
+    margin: 0 0 32px;
+    font-size: 14px;
+    font-weight: 700;
+    opacity: 0.65;
+}
+
+.contact-mail {
+    display: inline-block;
+    font-size: clamp(15px, calc(1.33vw + 8.6px), 22px);
+    font-weight: 700;
+    letter-spacing: 0;
+    margin-bottom: 36px;
+    border-bottom: 1.5px solid currentColor;
+    padding-bottom: 3px;
+    transition: opacity 0.2s ease;
+}
+
+.contact-mail:hover {
+    opacity: 0.55;
+}
+
+.contact-sns {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@media (max-width: 767px) {
+    .contact-section {
+        padding-block: 52px 40px;
+    }
+
+    .contact-section h2 {
+        font-size: 36px;
+    }
+}
