@@ -1,0 +1,166 @@
+/* ---- breadcrumb ---- */
+.work-breadcrumb {
+    margin-bottom: 40px;
+}
+
+.work-breadcrumb a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+}
+
+.work-breadcrumb a:hover {
+    opacity: 1;
+}
+
+/* ---- article wrapper ---- */
+.work-detail {
+    max-width: 960px;
+    margin-inline: auto;
+}
+
+/* ---- header ---- */
+.work-detail-header {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 40px;
+}
+
+.work-detail-header h1 {
+    margin: 0;
+    font-size: 38px;
+    line-height: 1.35;
+}
+
+.work-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 13px;
+    line-height: 1.3;
+    opacity: 0.6;
+}
+
+/* ---- media showcase ---- */
+.work-detail-media {
+    position: relative;
+    margin-bottom: 56px;
+}
+
+.work-detail-media img:first-child {
+    width: 100%;
+    display: block;
+}
+
+.work-detail-media img:last-child {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 18%;
+}
+
+/* ---- body ---- */
+.work-detail-body {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 56px;
+    align-items: start;
+}
+
+.work-detail-description {
+    display: grid;
+    gap: 24px;
+}
+
+.work-detail-description h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.4;
+    padding-left: 12px;
+    border-left: 3px solid var(--color-border);
+}
+
+.work-detail-description p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+/* ---- specs sidebar ---- */
+.work-detail-specs {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 20px 24px;
+}
+
+.work-detail-specs dl {
+    margin: 0;
+}
+
+.work-detail-specs > dl > div {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-gray);
+}
+
+.work-detail-specs > dl > div:first-child {
+    padding-top: 0;
+}
+
+.work-detail-specs > dl > div:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.work-detail-specs dt {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 5px;
+    opacity: 0.45;
+}
+
+.work-detail-specs dd {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+/* ---- responsive ---- */
+@media (max-width: 767px) {
+    .work-breadcrumb {
+        margin-bottom: 28px;
+    }
+
+    .work-detail-header {
+        gap: 12px;
+        margin-bottom: 28px;
+    }
+
+    .work-detail-header h1 {
+        font-size: 24px;
+    }
+
+    .work-detail-media {
+        margin-bottom: 36px;
+    }
+
+    .work-detail-media img:last-child {
+        width: 26%;
+    }
+
+    .work-detail-body {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
