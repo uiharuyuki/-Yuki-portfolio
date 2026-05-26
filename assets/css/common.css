@@ -6,7 +6,11 @@ site-footer {
 
 .page-frame-blur {
     position: fixed;
-    inset: 0;
+    top: 0;
+    right: auto;
+    bottom: 0;
+    left: 0;
+    width: var(--viewport-width);
     z-index: 1990;
     padding: var(--page-frame-space);
     pointer-events: none;
@@ -24,7 +28,11 @@ site-footer {
 
 .page-frame {
     position: fixed;
-    inset: var(--page-frame-space);
+    top: var(--page-frame-space);
+    right: auto;
+    bottom: var(--page-frame-space);
+    left: var(--page-frame-space);
+    width: calc(var(--viewport-width) - (var(--page-frame-space) * 2));
     z-index: 2000;
     border: 1px solid var(--color-border);
     border-radius: 8px;
@@ -32,6 +40,7 @@ site-footer {
 }
 
 #page-layout__wrapper {
+    width: var(--viewport-width);
     padding: var(--page-frame-space);
 }
 
@@ -39,7 +48,8 @@ site-footer {
     position: fixed;
     top: var(--page-frame-space);
     left: var(--page-frame-space);
-    right: var(--page-frame-space);
+    right: auto;
+    width: calc(var(--viewport-width) - (var(--page-frame-space) * 2));
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     align-items: center;
@@ -233,7 +243,11 @@ site-footer {
 /* ========== ローディングオーバーレイ ========== */
 #loading-overlay {
     position: fixed;
-    inset: 0;
+    top: 0;
+    right: auto;
+    bottom: 0;
+    left: 0;
+    width: var(--viewport-width);
     z-index: 10000;
     background-color: var(--color-loading-background);
     color: var(--color-loading-text);
@@ -362,7 +376,11 @@ site-footer {
     .mobile-nav-backdrop {
         display: block;
         position: fixed;
-        inset: 0;
+        top: 0;
+        right: auto;
+        bottom: 0;
+        left: 0;
+        width: var(--viewport-width);
         background-color: var(--color-mobile-backdrop);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
