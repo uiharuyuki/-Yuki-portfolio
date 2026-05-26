@@ -2,29 +2,42 @@ const MOON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 const SUN_SVG  = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>`;
 const ARROW_OUTWARD_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z"/></svg>`;
 
+const SITE_NAV_ITEMS = [
+    { id: "home",    href: "index.html",   headerLabel: "home",    footerLabel: "Top"     },
+    { id: "about",   href: "about.html",   headerLabel: "about",   footerLabel: "About"   },
+    { id: "works",   href: "works/",       headerLabel: "works",   footerLabel: "Works"   },
+    { id: "contact", href: "contact.html", headerLabel: "contact", footerLabel: "Contact" },
+];
+
+const SCRIPT_PATH_PREFIX = (() => {
+    const scriptPath = document.currentScript ? document.currentScript.getAttribute("src") : "";
+    return (scriptPath || "").replace(/assets\/js\/header\.js(?:\?.*)?$/, "");
+})();
+
+function getPathPrefix(element) {
+    return element.hasAttribute("path-prefix") ? element.getAttribute("path-prefix") : SCRIPT_PATH_PREFIX;
+}
+
+function makeNavLinks(currentPage, pathPrefix, labelKey) {
+    return SITE_NAV_ITEMS.map((item) => {
+        const isActive = item.id === currentPage;
+        const cls = isActive ? ` class="is-active"` : "";
+        const aria = isActive ? ` aria-current="page"` : "";
+        return `<li><a href="${pathPrefix}${item.href}"${cls}${aria}>${item[labelKey]}</a></li>`;
+    }).join("");
+}
+
 class SiteHeader extends HTMLElement {
     connectedCallback() {
         const currentPage = this.getAttribute("current-page") || "";
-        const navItems = [
-            { id: "home",    href: "index.html",    label: "home"    },
-            { id: "about",   href: "about.html",    label: "about"   },
-            { id: "works",   href: "works.html",    label: "works"   },
-            { id: "contact", href: "contact.html",  label: "contact" },
-        ];
-
-        const makeNavLinks = (items) => items.map((item) => {
-            const isActive  = item.id === currentPage;
-            const cls       = isActive ? ` class="is-active"` : "";
-            const aria      = isActive ? ` aria-current="page"` : "";
-            return `<li><a href="${item.href}"${cls}${aria}>${item.label}</a></li>`;
-        }).join("");
+        const pathPrefix = getPathPrefix(this);
 
         this.innerHTML = `
             <header class="site-header">
-                <p class="site-brand"><a href="index.html">Yuki portfolio</a></p>
+                <p class="site-brand"><a href="${pathPrefix}index.html">Yuki portfolio</a></p>
 
                 <nav class="site-nav" aria-label="primary navigation">
-                    <ul>${makeNavLinks(navItems)}</ul>
+                    <ul>${makeNavLinks(currentPage, pathPrefix, "headerLabel")}</ul>
                 </nav>
 
                 <div class="header-end">
@@ -52,7 +65,7 @@ class SiteHeader extends HTMLElement {
 
                 <div class="mobile-nav-menu" id="mobile-nav-menu" aria-hidden="true">
                     <nav aria-label="mobile navigation">
-                        <ul>${makeNavLinks(navItems)}</ul>
+                        <ul>${makeNavLinks(currentPage, pathPrefix, "headerLabel")}</ul>
                     </nav>
                     <div class="mobile-nav-links">
                         <a href="https://github.com/uiharuyuki" class="header-link" target="_blank" rel="noopener noreferrer">
@@ -104,7 +117,7 @@ class SiteHeader extends HTMLElement {
         });
 
         /* ---- カスタムカーソル（デスクトップのみ） ---- */
-        if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        if (window.matchMedia("(hover: hover) and (pointer: fine)").matches && !document.querySelector(".cursor-ring")) {
             const ring = document.createElement("div");
             ring.className = "cursor-ring";
             document.body.appendChild(ring);
@@ -121,4 +134,24 @@ class SiteHeader extends HTMLElement {
     }
 }
 
+class SiteFooter extends HTMLElement {
+    connectedCallback() {
+        const currentPage = this.getAttribute("current-page") || "";
+        const pathPrefix = getPathPrefix(this);
+
+        this.innerHTML = `
+            <footer class="site-footer">
+                <p class="footer-brand">Yuki Portfolio</p>
+
+                <nav class="footer-nav" aria-label="footer navigation">
+                    <ul>${makeNavLinks(currentPage, pathPrefix, "footerLabel")}</ul>
+                </nav>
+
+                <small class="footer-copyright">&copy;2026 Yuki Portfolio</small>
+            </footer>
+        `;
+    }
+}
+
 customElements.define("site-header", SiteHeader);
+customElements.define("site-footer", SiteFooter);

@@ -200,8 +200,8 @@
     pointer-events: none;
 }
 
-/* contact-section の直後のフッターだけサーフェスカラーを適用 */
-.contact-section + .site-footer {
+/* aboutページ末尾のフッターだけサーフェスカラーを適用 */
+.about-page + site-footer .site-footer {
     background-color: var(--color-surface);
 }
 

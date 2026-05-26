@@ -1,13 +1,42 @@
 .first-view {
     height: 100vh;
     margin: calc(var(--page-frame-space) * -1) calc(var(--page-frame-space) * -1) 0;
+    background: url("../../images/home/hero-main_sp.webp") center / cover no-repeat;
     overflow: hidden;
 }
 
-.first-view img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+[data-theme="dark"] .first-view {
+    background-image: url("../../images/home/hero-main_dark_sp.webp");
+}
+
+@media (min-width: 768px) {
+    .first-view {
+        background-image: url("../../images/home/hero-main_tablet.webp");
+    }
+
+    [data-theme="dark"] .first-view {
+        background-image: url("../../images/home/hero-main_dark_tablet.webp");
+    }
+}
+
+@media (min-width: 768px) and (orientation: landscape) {
+    .first-view {
+        background-image: url("../../images/home/hero-main_tablet_landscape.webp");
+    }
+
+    [data-theme="dark"] .first-view {
+        background-image: url("../../images/home/hero-main_dark_tablet_landscape.webp");
+    }
+}
+
+@media (min-width: 1200px) {
+    .first-view {
+        background-image: url("../../images/home/hero-main.webp");
+    }
+
+    [data-theme="dark"] .first-view {
+        background-image: url("../../images/home/hero-main_dark.webp");
+    }
 }
 
 .works-section {

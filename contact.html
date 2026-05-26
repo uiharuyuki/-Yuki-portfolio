@@ -2,7 +2,7 @@
 <html lang="ja" class="contact-document">
 <head>
     <meta charset="utf-8">
-    <script>!function(){if(!sessionStorage.getItem('yuki-loaded'))return;var t=localStorage.getItem('yuki-theme');t?document.documentElement.setAttribute('data-theme',t):window.matchMedia('(prefers-color-scheme:dark)').matches&&document.documentElement.setAttribute('data-theme','dark')}();</script>
+    <script>!function(){if(!sessionStorage.getItem('yuki-loaded'))return;var t=localStorage.getItem('yuki-theme');var m=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t||m)}();</script>
     <title>Contact | Yuki Portfolio</title>
     <meta name="author" content="内山 倖徳">
     <meta name="description" content="Yukiへのお問い合わせページです。お仕事のご依頼・ご質問はこちらからどうぞ。">
@@ -18,7 +18,7 @@
     <meta property="og:title" content="Contact | Yuki Portfolio">
     <meta property="og:description" content="Yukiへのお問い合わせページです。お仕事のご依頼・ご質問はこちらからどうぞ。">
     <meta property="og:site_name" content="Yuki Portfolio">
-    <meta property="og:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/home/hero-main.png">
+    <meta property="og:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/og/portfolio-og.jpg">
     <meta property="og:locale" content="ja_JP">
 
     <!-- OGP X (Twitter) -->
@@ -27,7 +27,7 @@
     <meta name="twitter:creator" content="@U_K_0211">
     <meta name="twitter:title" content="Contact | Yuki Portfolio">
     <meta name="twitter:description" content="Yukiへのお問い合わせページです。お仕事のご依頼・ご質問はこちらからどうぞ。">
-    <meta name="twitter:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/home/hero-main.png">
+    <meta name="twitter:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/og/portfolio-og.jpg">
 
     <!-- Import Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -85,20 +85,7 @@
             </div>
         </main>
 
-        <footer class="site-footer">
-            <p class="footer-brand">Yuki Portfolio</p>
-
-            <nav class="footer-nav" aria-label="footer navigation">
-                <ul>
-                    <li><a href="index.html">Top</a></li>
-                    <li><a href="works.html">Works</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html" class="is-active" aria-current="page">Contact</a></li>
-                </ul>
-            </nav>
-
-            <small class="footer-copyright">&copy;2026 Yuki Portfolio</small>
-        </footer>
+        <site-footer current-page="contact"></site-footer>
     </div>
 
 </body>

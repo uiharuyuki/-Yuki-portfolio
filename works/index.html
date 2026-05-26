@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    <script>!function(){if(!sessionStorage.getItem('yuki-loaded'))return;var t=localStorage.getItem('yuki-theme');t?document.documentElement.setAttribute('data-theme',t):window.matchMedia('(prefers-color-scheme:dark)').matches&&document.documentElement.setAttribute('data-theme','dark')}();</script>
+    <script>!function(){if(!sessionStorage.getItem('yuki-loaded'))return;var t=localStorage.getItem('yuki-theme');var m=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t||m)}();</script>
     <title>Works | Yuki Portfolio</title>
     <meta name="author" content="内山 倖徳">
     <meta name="description" content="Yukiの制作実績を掲載するページです。">
@@ -10,16 +10,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no,email=no,address=no">
 
-    <link rel="canonical" href="https://uiharuyuki.github.io/-Yuki-portfolio/works.html">
-    <link rel="icon" href="assets/images/icons/favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://uiharuyuki.github.io/-Yuki-portfolio/works/">
+    <link rel="icon" href="../assets/images/icons/favicon.svg" type="image/svg+xml">
 
     <!-- OGP -->
-    <meta property="og:url" content="https://uiharuyuki.github.io/-Yuki-portfolio/works.html">
+    <meta property="og:url" content="https://uiharuyuki.github.io/-Yuki-portfolio/works/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Works | Yuki Portfolio">
     <meta property="og:description" content="Yukiの制作実績を掲載するページです。">
     <meta property="og:site_name" content="Yuki Portfolio">
-    <meta property="og:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/home/hero-main.png">
+    <meta property="og:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/og/portfolio-og.jpg">
     <meta property="og:locale" content="ja_JP">
 
     <!-- OGP X (Twitter) -->
@@ -28,7 +28,7 @@
     <meta name="twitter:creator" content="@U_K_0211">
     <meta name="twitter:title" content="Works | Yuki Portfolio">
     <meta name="twitter:description" content="Yukiの制作実績を掲載するページです。">
-    <meta name="twitter:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/home/hero-main.png">
+    <meta name="twitter:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/og/portfolio-og.jpg">
 
     <!-- Import Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,13 +36,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@4.1.1/dist/css/yakuhanjp.css">
 
-    <link rel="stylesheet" href="assets/css/kiso.css">
-    <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/common.css">
-    <link rel="stylesheet" href="assets/css/component.css">
-    <link rel="stylesheet" href="assets/css/pages/works.css">
-    <script src="assets/js/header.js" defer></script>
-    <script src="assets/js/loading.js" defer></script>
+    <link rel="stylesheet" href="../assets/css/kiso.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <link rel="stylesheet" href="../assets/css/component.css">
+    <link rel="stylesheet" href="../assets/css/pages/works.css">
+    <script src="../assets/js/header.js" defer></script>
+    <script src="../assets/js/loading.js" defer></script>
 </head>
 
 <body>
@@ -65,53 +65,53 @@
 
                         <article class="works-card">
                             <div class="works-media" aria-hidden="true">
-                                <img src="assets/images/works/katori-tourism/desktop.webp" width="1761" height="1106" loading="lazy" decoding="async" alt="">
-                                <img src="assets/images/works/katori-tourism/mobile.webp" width="488" height="987" loading="lazy" decoding="async" alt="">
+                                <img src="../assets/images/works/katori-tourism/desktop.webp" width="1761" height="1106" loading="lazy" decoding="async" alt="">
+                                <img src="../assets/images/works/katori-tourism/mobile.webp" width="488" height="987" loading="lazy" decoding="async" alt="">
                             </div>
                             <div class="works-content">
                                 <p class="works-category">LP / Branding</p>
                                 <h3>「香取市観光LPサイト」</h3>
                                 <p>香取市の魅力である「佐原の町並み」を全面に押し出したサイトデザイン。名物グルメの項目のロゴを自作し、魅力を伝える工夫をしました。</p>
-                                <a href="work-katori-tourism.html" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+                                <a href="katori-tourism/" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
                             </div>
                         </article>
 
                         <article class="works-card">
                             <div class="works-media" aria-hidden="true">
-                                <img src="assets/images/works/yuki-portfolio/desktop.webp" width="1200" height="675" loading="lazy" decoding="async" alt="">
-                                <img src="assets/images/works/yuki-portfolio/mobile.webp" width="360" height="203" loading="lazy" decoding="async" alt="">
+                                <img src="../assets/images/works/yuki-portfolio/desktop.webp" width="1200" height="675" loading="lazy" decoding="async" alt="">
+                                <img src="../assets/images/works/yuki-portfolio/mobile.webp" width="360" height="203" loading="lazy" decoding="async" alt="">
                             </div>
                             <div class="works-content">
                                 <p class="works-category">Portfolio / Personal</p>
                                 <h3>「ポートフォリオサイト」</h3>
                                 <p>制作実績やプロフィールを整理して見せる個人ポートフォリオサイトです。共通パーツとページ固有表現を分けて管理しています。</p>
-                                <a href="work-yuki-portfolio.html" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+                                <a href="yuki-portfolio/" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
                             </div>
                         </article>
 
                         <article class="works-card">
                             <div class="works-media" aria-hidden="true">
-                                <img src="assets/images/works/recipe-search/desktop.webp" width="1761" height="1106" loading="lazy" decoding="async" alt="">
-                                <img src="assets/images/works/recipe-search/mobile.webp" width="488" height="987" loading="lazy" decoding="async" alt="">
+                                <img src="../assets/images/works/recipe-search/desktop.webp" width="1761" height="1106" loading="lazy" decoding="async" alt="">
+                                <img src="../assets/images/works/recipe-search/mobile.webp" width="488" height="987" loading="lazy" decoding="async" alt="">
                             </div>
                             <div class="works-content">
                                 <p class="works-category">Web app / Search</p>
                                 <h3>「料理レシピ検索サイト」</h3>
                                 <p>「ズボラでも簡単！今日のレシピが見つかる！」をコンセプトに制作。日替わりでレシピが入れ替わる導線を想定しています。</p>
-                                <a href="work-recipe-search.html" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+                                <a href="recipe-search/" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
                             </div>
                         </article>
 
                         <article class="works-card">
                             <div class="works-media" aria-hidden="true">
-                                <img src="assets/images/works/vtuber-official/desktop.webp" width="1200" height="754" loading="lazy" decoding="async" alt="">
-                                <img src="assets/images/works/vtuber-official/mobile.webp" width="360" height="728" loading="lazy" decoding="async" alt="">
+                                <img src="../assets/images/works/vtuber-official/desktop.webp" width="1200" height="754" loading="lazy" decoding="async" alt="">
+                                <img src="../assets/images/works/vtuber-official/mobile.webp" width="360" height="728" loading="lazy" decoding="async" alt="">
                             </div>
                             <div class="works-content">
                                 <p class="works-category">Web site / Responsive</p>
                                 <h3>「Vtuber公式サイト」</h3>
                                 <p>架空のVTuber公式サイトを制作しました。オリジナルキャラクターを主役に据えた、遊び心のある構成で制作しています。</p>
-                                <a href="work-vtuber-official.html" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+                                <a href="vtuber-official/" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
                             </div>
                         </article>
                     </div>
@@ -119,20 +119,7 @@
             </section>
         </main>
 
-        <footer class="site-footer">
-            <p class="footer-brand">Yuki Portfolio</p>
-
-            <nav class="footer-nav" aria-label="footer navigation">
-                <ul>
-                    <li><a href="index.html">Top</a></li>
-                    <li><a href="works.html">Works</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-
-            <small class="footer-copyright">&copy;2026 Yuki Portfolio</small>
-        </footer>
+        <site-footer current-page="works"></site-footer>
     </div>
 
 </body>

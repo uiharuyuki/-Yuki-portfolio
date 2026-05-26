@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    <script>!function(){if(!sessionStorage.getItem('yuki-loaded'))return;var t=localStorage.getItem('yuki-theme');t?document.documentElement.setAttribute('data-theme',t):window.matchMedia('(prefers-color-scheme:dark)').matches&&document.documentElement.setAttribute('data-theme','dark')}();</script>
+    <script>!function(){if(!sessionStorage.getItem('yuki-loaded'))return;var t=localStorage.getItem('yuki-theme');var m=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t||m)}();</script>
     <title>Yuki | portfolio</title>
     <meta name="author" content="内山 倖徳">
     <meta name="description" content="Web制作を中心に学習しているYukiのポートフォリオサイトです。これまでの制作実績やスキル、自己紹介などを掲載しています。">
@@ -27,7 +27,7 @@
         <!-- サイト全体の名前 -->
     <meta property="og:site_name" content="Yuki Portfolio">
         <!-- SNSカードに表示する画像、絶対URLで指定する。推奨は1200×630px -->
-    <meta property="og:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/home/hero-main.png">
+    <meta property="og:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/og/portfolio-og.jpg">
         <!-- ページの言語・地域 -->
     <meta property="og:locale" content="ja_JP">
 
@@ -43,7 +43,7 @@
         <!-- Xカード用説明文 -->
     <meta name="twitter:description" content="Web制作を中心に学習しているYukiのポートフォリオサイトです。これまでの制作実績やスキル、自己紹介などを掲載しています。">
         <!-- Xカード用画像、絶対URLで指定する。推奨は1200×630px -->
-    <meta name="twitter:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/home/hero-main.png">
+    <meta name="twitter:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/og/portfolio-og.jpg">
 
     <!-- Import Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,127 +71,100 @@
     <div class="page-frame" aria-hidden="true"></div>
 
     <div id="page-layout__wrapper">
-        <!--loading view-->
-        <!--loading view-->
-
-<!--****************************** HEADER ******************************-->
         <site-header current-page="home"></site-header>
-<!--****************************** HEADER ******************************-->
 
-<!--****************************** MAIN ******************************-->
-    <main>
-        <h1 class="visually-hidden">Yuki portfolio</h1>
+        <main>
+            <h1 class="visually-hidden">Yuki portfolio</h1>
 
-        <section class="first-view">
-            <picture>
-                <source media="(max-width: 767px)" type="image/webp" srcset="assets/images/home/hero-mobile.webp">
-                <img src="assets/images/home/hero-main.png" width="1672" height="941" alt="Yuki portfolio main visual" fetchpriority="high" decoding="async">
-            </picture>
-        </section>
+            <section class="first-view" role="img" aria-label="Yuki portfolio main visual"></section>
 
-        <section class="works-section" aria-labelledby="works-title">
-            <div class="container works-container">
-                <h2 id="works-title">WORKS</h2>
+            <section class="works-section" aria-labelledby="works-title">
+                <div class="container works-container">
+                    <h2 id="works-title">WORKS</h2>
 
-                <div class="works-list">
-                    <article class="works-card">
-                        <div class="works-media" aria-hidden="true">
-                            <img src="assets/images/works/vtuber-official/desktop.webp" width="1200" height="754" loading="lazy" decoding="async" alt="">
-                            <img src="assets/images/works/vtuber-official/mobile.webp" width="360" height="728" loading="lazy" decoding="async" alt="">
-                        </div>
-                        <div class="works-content">
-                            <p class="works-category">Web site / Responsive</p>
-                            <h3>「Vtuber公式サイト」</h3>
-                            <p>架空の公式サイトを想定したダミーテキストです。世界観が伝わる構成と、スマートフォンでも見やすい設計を意識しています。</p>
-                            <a href="work-vtuber-official.html" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
-                        </div>
-                    </article>
+                    <div class="works-list">
+                        <article class="works-card">
+                            <div class="works-media" aria-hidden="true">
+                                <img src="assets/images/works/vtuber-official/desktop.webp" width="1200" height="754" loading="lazy" decoding="async" alt="">
+                                <img src="assets/images/works/vtuber-official/mobile.webp" width="360" height="728" loading="lazy" decoding="async" alt="">
+                            </div>
+                            <div class="works-content">
+                                <p class="works-category">Web site / Responsive</p>
+                                <h3>「Vtuber公式サイト」</h3>
+                                <p>架空の公式サイトを想定したダミーテキストです。世界観が伝わる構成と、スマートフォンでも見やすい設計を意識しています。</p>
+                                <a href="works/vtuber-official/" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+                            </div>
+                        </article>
 
-                    <article class="works-card">
-                        <div class="works-media" aria-hidden="true">
-                            <img src="assets/images/works/katori-tourism/desktop.webp" width="1761" height="1106" loading="lazy" decoding="async" alt="">
-                            <img src="assets/images/works/katori-tourism/mobile.webp" width="488" height="987" loading="lazy" decoding="async" alt="">
-                        </div>
-                        <div class="works-content">
-                            <p class="works-category">LP / Branding</p>
-                            <h3>「香取市観光LPサイト」</h3>
-                            <p>観光向けランディングページを想定したダミーテキストです。写真を活かしながら、情報を分かりやすく整理しています。</p>
-                            <a href="work-katori-tourism.html" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
-                        </div>
-                    </article>
+                        <article class="works-card">
+                            <div class="works-media" aria-hidden="true">
+                                <img src="assets/images/works/katori-tourism/desktop.webp" width="1761" height="1106" loading="lazy" decoding="async" alt="">
+                                <img src="assets/images/works/katori-tourism/mobile.webp" width="488" height="987" loading="lazy" decoding="async" alt="">
+                            </div>
+                            <div class="works-content">
+                                <p class="works-category">LP / Branding</p>
+                                <h3>「香取市観光LPサイト」</h3>
+                                <p>観光向けランディングページを想定したダミーテキストです。写真を活かしながら、情報を分かりやすく整理しています。</p>
+                                <a href="works/katori-tourism/" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+                            </div>
+                        </article>
 
-                    <article class="works-card">
-                        <div class="works-media" aria-hidden="true">
-                            <img src="assets/images/works/recipe-search/desktop.webp" width="1761" height="1106" loading="lazy" decoding="async" alt="">
-                            <img src="assets/images/works/recipe-search/mobile.webp" width="488" height="987" loading="lazy" decoding="async" alt="">
-                        </div>
-                        <div class="works-content">
-                            <p class="works-category">Web app / Search</p>
-                            <h3>「料理レシピ検索サイト」</h3>
-                            <p>検索機能のあるWebアプリを想定したダミーテキストです。条件指定や一覧表示など、使いやすさを重視しています。</p>
-                            <a href="work-recipe-search.html" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
-                        </div>
-                    </article>
+                        <article class="works-card">
+                            <div class="works-media" aria-hidden="true">
+                                <img src="assets/images/works/recipe-search/desktop.webp" width="1761" height="1106" loading="lazy" decoding="async" alt="">
+                                <img src="assets/images/works/recipe-search/mobile.webp" width="488" height="987" loading="lazy" decoding="async" alt="">
+                            </div>
+                            <div class="works-content">
+                                <p class="works-category">Web app / Search</p>
+                                <h3>「料理レシピ検索サイト」</h3>
+                                <p>検索機能のあるWebアプリを想定したダミーテキストです。条件指定や一覧表示など、使いやすさを重視しています。</p>
+                                <a href="works/recipe-search/" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+                            </div>
+                        </article>
 
-                    <article class="works-card">
-                        <div class="works-media" aria-hidden="true">
-                            <img src="assets/images/works/yuki-portfolio/desktop.webp" width="1200" height="675" loading="lazy" decoding="async" alt="">
-                            <img src="assets/images/works/yuki-portfolio/mobile.webp" width="360" height="203" loading="lazy" decoding="async" alt="">
-                        </div>
-                        <div class="works-content">
-                            <p class="works-category">Portfolio / Personal</p>
-                            <h3>「ポートフォリオサイト」</h3>
-                            <p>個人制作サイトを想定したダミーテキストです。制作実績やプロフィールを見やすく伝える構成にしています。</p>
-                            <a href="work-yuki-portfolio.html" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
-                        </div>
-                    </article>
-                </div>
-
-                <a href="works.html" class="works-more">すべて見る</a>
-            </div>
-        </section>
-
-        <section class="about-section" aria-labelledby="about-title">
-            <div class="container">
-                <h2 id="about-title">ABOUT</h2>
-
-                <div class="about-inner">
-                    <div class="about-image">
-                        <img src="assets/images/about/profile-main.jpg" width="640" height="853" loading="lazy" decoding="async" alt="内山 倖徳のプロフィール画像">
+                        <article class="works-card">
+                            <div class="works-media" aria-hidden="true">
+                                <img src="assets/images/works/yuki-portfolio/desktop.webp" width="1200" height="675" loading="lazy" decoding="async" alt="">
+                                <img src="assets/images/works/yuki-portfolio/mobile.webp" width="360" height="203" loading="lazy" decoding="async" alt="">
+                            </div>
+                            <div class="works-content">
+                                <p class="works-category">Portfolio / Personal</p>
+                                <h3>「ポートフォリオサイト」</h3>
+                                <p>個人制作サイトを想定したダミーテキストです。制作実績やプロフィールを見やすく伝える構成にしています。</p>
+                                <a href="works/yuki-portfolio/" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+                            </div>
+                        </article>
                     </div>
 
-                    <div class="about-content">
-                        <h3>内山 倖徳</h3>
-                        <p>
-                            2006年に生まれ、千葉県で育ちました。<br>
-                            高校生活でデザインに興味を持ち、専門学校ではWeb制作に心を惹かれ、<br>
-                            Webを中心に取り組んできました。<br>
-                            現在、Web制作会社で勤務することを目標に就活中です。
-                        </p>
-                        <a href="about.html" class="works-detail">詳細<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+                    <a href="works/" class="works-more">すべて見る</a>
+                </div>
+            </section>
+
+            <section class="about-section" aria-labelledby="about-title">
+                <div class="container">
+                    <h2 id="about-title">ABOUT</h2>
+
+                    <div class="about-inner">
+                        <div class="about-image">
+                            <img src="assets/images/about/profile-main.jpg" width="640" height="853" loading="lazy" decoding="async" alt="内山 倖徳のプロフィール画像">
+                        </div>
+
+                        <div class="about-content">
+                            <h3>内山 倖徳</h3>
+                            <p>
+                                2006年に生まれ、千葉県で育ちました。<br>
+                                高校生活でデザインに興味を持ち、専門学校ではWeb制作に心を惹かれ、<br>
+                                Webを中心に取り組んできました。<br>
+                                現在、Web制作会社で勤務することを目標に就活中です。
+                            </p>
+                            <a href="about.html" class="works-detail">詳細<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
-<!--****************************** MAIN ******************************-->
+            </section>
+        </main>
 
-<!--****************************** FOOTER ******************************-->
-    <footer class="site-footer">
-        <p class="footer-brand">Yuki Portfolio</p>
-
-        <nav class="footer-nav" aria-label="footer navigation">
-            <ul>
-                <li><a href="index.html">Top</a></li>
-                <li><a href="works.html">Works</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-
-        <small class="footer-copyright">&copy;2026 Yuki Portfolio</small>
-    </footer>
-<!--****************************** FOOTER ******************************-->
+        <site-footer current-page="home"></site-footer>
     </div>
 
 </body>

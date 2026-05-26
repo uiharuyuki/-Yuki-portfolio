@@ -1,4 +1,9 @@
 /******************************* header *******************************/
+site-header,
+site-footer {
+    display: contents;
+}
+
 .page-frame-blur {
     position: fixed;
     inset: 0;
@@ -358,7 +363,7 @@
         display: block;
         position: fixed;
         inset: 0;
-        background-color: rgb(255 255 255 / 8%);
+        background-color: var(--color-mobile-backdrop);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
         z-index: 1;

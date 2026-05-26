@@ -2,22 +2,22 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    <script>!function(){if(!sessionStorage.getItem('yuki-loaded'))return;var t=localStorage.getItem('yuki-theme');t?document.documentElement.setAttribute('data-theme',t):window.matchMedia('(prefers-color-scheme:dark)').matches&&document.documentElement.setAttribute('data-theme','dark')}();</script>
+    <script>!function(){if(!sessionStorage.getItem('yuki-loaded'))return;var t=localStorage.getItem('yuki-theme');var m=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t||m)}();</script>
     <title>ポートフォリオサイト | Works | Yuki Portfolio</title>
     <meta name="author" content="内山 倖徳">
     <meta name="description" content="個人制作のポートフォリオサイトの制作実績です。">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no,email=no,address=no">
-    <link rel="canonical" href="https://uiharuyuki.github.io/-Yuki-portfolio/work-yuki-portfolio.html">
-    <link rel="icon" href="assets/images/icons/favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://uiharuyuki.github.io/-Yuki-portfolio/works/yuki-portfolio/">
+    <link rel="icon" href="../../assets/images/icons/favicon.svg" type="image/svg+xml">
 
     <!-- OGP -->
-    <meta property="og:url" content="https://uiharuyuki.github.io/-Yuki-portfolio/work-yuki-portfolio.html">
+    <meta property="og:url" content="https://uiharuyuki.github.io/-Yuki-portfolio/works/yuki-portfolio/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="ポートフォリオサイト | Works | Yuki Portfolio">
     <meta property="og:description" content="個人制作のポートフォリオサイトの制作実績です。">
     <meta property="og:site_name" content="Yuki Portfolio">
-    <meta property="og:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/home/hero-main.png">
+    <meta property="og:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/og/portfolio-og.jpg">
     <meta property="og:locale" content="ja_JP">
 
     <!-- OGP X (Twitter) -->
@@ -26,20 +26,20 @@
     <meta name="twitter:creator" content="@U_K_0211">
     <meta name="twitter:title" content="ポートフォリオサイト | Works | Yuki Portfolio">
     <meta name="twitter:description" content="個人制作のポートフォリオサイトの制作実績です。">
-    <meta name="twitter:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/home/hero-main.png">
+    <meta name="twitter:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/og/portfolio-og.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@4.1.1/dist/css/yakuhanjp.css">
 
-    <link rel="stylesheet" href="assets/css/kiso.css">
-    <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/common.css">
-    <link rel="stylesheet" href="assets/css/component.css">
-    <link rel="stylesheet" href="assets/css/pages/work-detail.css">
-    <script src="assets/js/header.js" defer></script>
-    <script src="assets/js/loading.js" defer></script>
+    <link rel="stylesheet" href="../../assets/css/kiso.css">
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <link rel="stylesheet" href="../../assets/css/component.css">
+    <link rel="stylesheet" href="../../assets/css/pages/work-detail.css">
+    <script src="../../assets/js/header.js" defer></script>
+    <script src="../../assets/js/loading.js" defer></script>
 </head>
 
 <body>
@@ -57,7 +57,7 @@
             <div class="container">
 
                 <nav class="work-breadcrumb" aria-label="パンくずリスト">
-                    <a href="works.html">← Works</a>
+                    <a href="../">← Works</a>
                 </nav>
 
                 <article class="work-detail">
@@ -75,8 +75,8 @@
                     </header>
 
                     <div class="work-detail-media">
-                        <img src="assets/images/works/yuki-portfolio/desktop.webp" width="1200" height="675" decoding="async" alt="ポートフォリオサイト デスクトップ表示">
-                        <img src="assets/images/works/yuki-portfolio/mobile.webp" width="360" height="203" decoding="async" alt="ポートフォリオサイト モバイル表示">
+                        <img src="../../assets/images/works/yuki-portfolio/desktop.webp" width="1200" height="675" decoding="async" alt="ポートフォリオサイト デスクトップ表示">
+                        <img src="../../assets/images/works/yuki-portfolio/mobile.webp" width="360" height="203" decoding="async" alt="ポートフォリオサイト モバイル表示">
                     </div>
 
                     <div class="work-detail-body">
@@ -112,18 +112,7 @@
             </div>
         </main>
 
-        <footer class="site-footer">
-            <p class="footer-brand">Yuki Portfolio</p>
-            <nav class="footer-nav" aria-label="footer navigation">
-                <ul>
-                    <li><a href="index.html">Top</a></li>
-                    <li><a href="works.html">Works</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <small class="footer-copyright">&copy;2026 Yuki Portfolio</small>
-        </footer>
+        <site-footer current-page="works"></site-footer>
     </div>
 </body>
 </html>

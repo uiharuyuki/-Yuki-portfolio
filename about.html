@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    <script>!function(){if(!sessionStorage.getItem('yuki-loaded'))return;var t=localStorage.getItem('yuki-theme');t?document.documentElement.setAttribute('data-theme',t):window.matchMedia('(prefers-color-scheme:dark)').matches&&document.documentElement.setAttribute('data-theme','dark')}();</script>
+    <script>!function(){if(!sessionStorage.getItem('yuki-loaded'))return;var t=localStorage.getItem('yuki-theme');var m=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t||m)}();</script>
     <title>About | Yuki Portfolio</title>
     <meta name="author" content="内山 倖徳">
     <meta name="description" content="Yukiのプロフィールやスキルを掲載するページです。">
@@ -19,7 +19,7 @@
     <meta property="og:title" content="About | Yuki Portfolio">
     <meta property="og:description" content="Yukiのプロフィールやスキルを掲載するページです。">
     <meta property="og:site_name" content="Yuki Portfolio">
-    <meta property="og:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/home/hero-main.png">
+    <meta property="og:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/og/portfolio-og.jpg">
     <meta property="og:locale" content="ja_JP">
 
     <!-- OGP X (Twitter) -->
@@ -28,7 +28,7 @@
     <meta name="twitter:creator" content="@U_K_0211">
     <meta name="twitter:title" content="About | Yuki Portfolio">
     <meta name="twitter:description" content="Yukiのプロフィールやスキルを掲載するページです。">
-    <meta name="twitter:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/home/hero-main.png">
+    <meta name="twitter:image" content="https://uiharuyuki.github.io/-Yuki-portfolio/assets/images/og/portfolio-og.jpg">
 
     <!-- Import Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -176,43 +176,29 @@
                     </div>
                 </div>
             </section>
+            <section class="contact-section" aria-label="CONTACT">
+                <div class="container">
+                    <p class="contact-lead">お仕事のご依頼・ご質問はお気軽にどうぞ。</p>
+                    <a href="mailto:nirayuki15@gmail.com" class="contact-mail">nirayuki15@gmail.com</a>
+                    <ul class="contact-sns">
+                        <li>
+                            <a href="https://x.com/U_K_0211" class="header-link" target="_blank" rel="noopener noreferrer">
+                                <span>X</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/uiharuyuki" class="header-link" target="_blank" rel="noopener noreferrer">
+                                <span>github</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z"/></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
         </main>
 
-        <section class="contact-section" aria-label="CONTACT">
-            <div class="container">
-                <p class="contact-lead">お仕事のご依頼・ご質問はお気軽にどうぞ。</p>
-                <a href="mailto:nirayuki15@gmail.com" class="contact-mail">nirayuki15@gmail.com</a>
-                <ul class="contact-sns">
-                    <li>
-                        <a href="https://x.com/U_K_0211" class="header-link" target="_blank" rel="noopener noreferrer">
-                            <span>X</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z"/></svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/uiharuyuki" class="header-link" target="_blank" rel="noopener noreferrer">
-                            <span>github</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z"/></svg>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <footer class="site-footer">
-            <p class="footer-brand">Yuki Portfolio</p>
-
-            <nav class="footer-nav" aria-label="footer navigation">
-                <ul>
-                    <li><a href="index.html">Top</a></li>
-                    <li><a href="works.html">Works</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-
-            <small class="footer-copyright">&copy;2026 Yuki Portfolio</small>
-        </footer>
+        <site-footer current-page="about"></site-footer>
     </div>
 
     <script src="assets/js/pages/about.js"></script>
