@@ -6,7 +6,7 @@
     "technologies": ["HTML", "CSS", "JavaScript"],
     "description": [
       "架空のvtuber公式サイト「on boom!」の制作。",
-      "オリジナルキャラクターを1から考案し、画像生成のAI技術を活用して制作しました。",
+      "オリジナルキャラクターの考案・画像生成・WebサイトのコーディングまでをAi技術を活用して行いました。",
       "CLIから使用するAIエージェントのコーディングを行った初めての制作です。"
     ],
     "images": {
@@ -29,7 +29,7 @@
     ],
     "detail": {
       "pageTitle": "Vtuber公式サイト",
-      "metaDescription": "架空のVTuber公式サイトの制作実績です。オリジナルキャラクターを主役に据えたWebサイトです。",
+      "metaDescription": "架空のvtuber公式サイト「on boom!」の制作実績です。オリジナルキャラクターの考案・画像生成・WebサイトのコーディングまでをAi技術を活用して行いました。",
       "primaryTags": ["#website", "#fictional", "#original character"],
       "secondaryTags": ["#design", "#coding"],
       "specs": [
