@@ -81,6 +81,10 @@ function renderDescriptionLines(lines) {
     return lines.map(escapeHtml).join("<br>");
 }
 
+function renderWorksImage(image, imagePrefix) {
+    return `<img src="${escapeHtml(imagePrefix + image.src)}" width="${image.width}" height="${image.height}" loading="lazy" decoding="async" alt="">`;
+}
+
 function renderWorksCard(work, imagePrefix, detailPrefix) {
     const desktopImage = work.images.desktop;
     const mobileImage = work.images.mobile;
@@ -89,30 +93,69 @@ function renderWorksCard(work, imagePrefix, detailPrefix) {
         ? `<div class="works-links">\n${indent(links.join("\n"), 12)}\n            </div>`
         : links[0];
 
-    return `<article class="works-card">
+    // mobile画像が無い作品（Web以外など）は1枚画像のカードとして描画する。
+    const cardClass = mobileImage ? "works-card" : "works-card works-card--single";
+    const mediaHtml = mobileImage
+        ? `${renderWorksImage(desktopImage, imagePrefix)}\n        ${renderWorksImage(mobileImage, imagePrefix)}`
+        : renderWorksImage(desktopImage, imagePrefix);
+
+    // メタの見出しは metaLabel で変更可能（既定は「使用技術」）。技術が無ければメタ自体を省く。
+    const metaHtml = work.technologies && work.technologies.length
+        ? `<dl class="works-meta">
+            <div>
+                <dt>${escapeHtml(work.metaLabel || "使用技術")}</dt>
+                <dd>${escapeHtml(formatTechnologies(work))}</dd>
+            </div>
+        </dl>`
+        : "";
+
+    return `<article class="${cardClass}">
     <div class="works-media" aria-hidden="true">
-        <img src="${escapeHtml(imagePrefix + desktopImage.src)}" width="${desktopImage.width}" height="${desktopImage.height}" loading="lazy" decoding="async" alt="">
-        <img src="${escapeHtml(imagePrefix + mobileImage.src)}" width="${mobileImage.width}" height="${mobileImage.height}" loading="lazy" decoding="async" alt="">
+        ${mediaHtml}
     </div>
     <div class="works-content">
         <p class="works-genre">${escapeHtml(work.genre)}</p>
         <h3>${escapeHtml(work.title)}</h3>
-        <dl class="works-meta">
-            <div>
-                <dt>使用技術</dt>
-                <dd>${escapeHtml(formatTechnologies(work))}</dd>
-            </div>
-        </dl>
+        ${metaHtml}
         <p>${renderDescriptionLines(work.description)}</p>
         ${linksHtml}
     </div>
 </article>`;
 }
 
-function renderWorksList(imagePrefix, detailPrefix) {
+function renderWorksList(list, imagePrefix, detailPrefix) {
     return `<div class="works-list">
-${indent(works.map((work) => renderWorksCard(work, imagePrefix, detailPrefix)).join("\n\n"), 4)}
+${indent(list.map((work) => renderWorksCard(work, imagePrefix, detailPrefix)).join("\n\n"), 4)}
 </div>`;
+}
+
+// Works一覧ページ用。category が2種類以上あるときだけ見出し付きセクションに分ける。
+// 1種類だけのときは従来どおりフラットな一覧を返す。
+function renderWorksByCategory(list, imagePrefix, detailPrefix) {
+    const groups = [];
+
+    list.forEach((work) => {
+        const label = work.category || "Works";
+        let group = groups.find((item) => item.label === label);
+
+        if (!group) {
+            group = { label, items: [] };
+            groups.push(group);
+        }
+
+        group.items.push(work);
+    });
+
+    if (groups.length <= 1) {
+        return renderWorksList(list, imagePrefix, detailPrefix);
+    }
+
+    return groups
+        .map((group) => `<section class="works-category" aria-label="${escapeHtml(group.label)}">
+    <h2 class="works-category-title">${escapeHtml(group.label)}</h2>
+${indent(renderWorksList(group.items, imagePrefix, detailPrefix), 4)}
+</section>`)
+        .join("\n\n");
 }
 
 function renderAboutText(lines) {
@@ -218,6 +261,11 @@ function renderWorkDetailPage(work) {
     const mobileImage = work.images.mobile;
     const workUrl = `${siteUrl}/works/${work.slug}/`;
     const markdown = readText(`content/works/${work.slug}.md`);
+    // mobile画像が無い作品は詳細ページのメインビジュアルも1枚で描画する。
+    const detailMediaHtml = mobileImage
+        ? `<img src="../../assets/images/works/${escapeHtml(desktopImage.src)}" width="${desktopImage.width}" height="${desktopImage.height}" decoding="async" alt="${escapeHtml(detail.pageTitle)} デスクトップ表示">
+                        <img src="../../assets/images/works/${escapeHtml(mobileImage.src)}" width="${mobileImage.width}" height="${mobileImage.height}" decoding="async" alt="${escapeHtml(detail.pageTitle)} モバイル表示">`
+        : `<img src="../../assets/images/works/${escapeHtml(desktopImage.src)}" width="${desktopImage.width}" height="${desktopImage.height}" decoding="async" alt="${escapeHtml(detail.pageTitle)}">`;
 
     return `<!DOCTYPE html>
 <html lang="ja">
@@ -290,8 +338,7 @@ function renderWorkDetailPage(work) {
                     </header>
 
                     <div class="work-detail-media">
-                        <img src="../../assets/images/works/${escapeHtml(desktopImage.src)}" width="${desktopImage.width}" height="${desktopImage.height}" decoding="async" alt="${escapeHtml(detail.pageTitle)} デスクトップ表示">
-                        <img src="../../assets/images/works/${escapeHtml(mobileImage.src)}" width="${mobileImage.width}" height="${mobileImage.height}" decoding="async" alt="${escapeHtml(detail.pageTitle)} モバイル表示">
+                        ${detailMediaHtml}
                     </div>
 
                     <div class="work-detail-body">
@@ -316,9 +363,13 @@ function renderWorkDetailPage(work) {
 }
 
 function build() {
-    replaceGeneratedBlock("index.html", "works-list-home", renderWorksList("assets/images/works/", "works/"));
+    // ホームは featured を付けた作品だけを表示（1件も無ければ安全のため全件）。
+    const featuredWorks = works.filter((work) => work.featured);
+    const homeWorks = featuredWorks.length ? featuredWorks : works;
+
+    replaceGeneratedBlock("index.html", "works-list-home", renderWorksList(homeWorks, "assets/images/works/", "works/"));
     replaceGeneratedBlock("index.html", "about-profile-home", renderAboutProfile("home", "assets/images/about/"));
-    replaceGeneratedBlock("works/index.html", "works-list-index", renderWorksList("../assets/images/works/", ""));
+    replaceGeneratedBlock("works/index.html", "works-list-index", renderWorksByCategory(works, "../assets/images/works/", ""));
     replaceGeneratedBlock("about.html", "about-profile-page", renderAboutProfile("page", "assets/images/about/"));
 
     works.forEach((work) => {

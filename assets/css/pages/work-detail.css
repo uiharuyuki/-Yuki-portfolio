@@ -53,7 +53,7 @@
     display: block;
 }
 
-.work-detail-media img:last-child {
+.work-detail-media img:last-child:not(:only-child) {
     position: absolute;
     right: 0;
     bottom: 0;

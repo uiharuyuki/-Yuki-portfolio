@@ -99,13 +99,18 @@
     object-position: center bottom;
 }
 
-.works-media img:last-child {
+.works-media img:last-child:not(:only-child) {
     width: 100%;
     height: var(--works-submedia-height);
     object-fit: contain;
     object-position: center bottom;
     transform: translateX(calc(var(--works-submedia-overlap) * -1));
     z-index: 1;
+}
+
+/* Web以外の作品など、画像が1枚だけのカード */
+.works-card--single .works-media {
+    grid-template-columns: minmax(0, 1fr);
 }
 
 .works-content {

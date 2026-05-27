@@ -1,6 +1,8 @@
 [
   {
     "slug": "vtuber-official",
+    "featured": true,
+    "category": "Web",
     "genre": "Web site / fictional / original character",
     "title": "「Vtuber公式サイト」",
     "technologies": ["HTML", "CSS", "JavaScript"],
@@ -56,6 +58,8 @@
   },
   {
     "slug": "katori-tourism",
+    "featured": true,
+    "category": "Web",
     "genre": "LP / fictional",
     "title": "「香取観光ナビ」",
     "technologies": ["HTML", "CSS", "JavaScript", "Gsap"],
@@ -110,6 +114,8 @@
   },
   {
     "slug": "yuki-portfolio",
+    "featured": true,
+    "category": "Web",
     "genre": "Portfolio",
     "title": "「ポートフォリオサイト」",
     "technologies": ["HTML", "CSS", "JavaScript", "Web Components", "Node.js"],
@@ -176,6 +182,8 @@
   },
   {
     "slug": "recipe-search",
+    "featured": true,
+    "category": "Web",
     "genre": "Web app",
     "title": "「料理レシピ検索サイト」",
     "technologies": ["HTML", "CSS", "JavaScript"],
@@ -223,6 +231,51 @@
         {
           "term": "担当",
           "description": "デザイン / コーディング"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "sample-video",
+    "featured": false,
+    "category": "Video",
+    "genre": "Movie / sample",
+    "metaLabel": "使用ソフト",
+    "technologies": ["Premiere Pro", "After Effects"],
+    "aiTools": [],
+    "description": [
+      "動画制作を想定した仮の作品です。表示確認用に他作品の画像を仮置きしています。"
+    ],
+    "images": {
+      "desktop": {
+        "src": "katori-tourism/desktop.webp",
+        "width": 1761,
+        "height": 1106
+      }
+    },
+    "links": [
+      {
+        "type": "detail",
+        "label": "詳しく見る"
+      }
+    ],
+    "detail": {
+      "pageTitle": "サンプル動画作品",
+      "metaDescription": "動画制作を想定した仮の作品ページです。",
+      "primaryTags": ["#video", "#sample"],
+      "secondaryTags": ["#editing"],
+      "specs": [
+        {
+          "term": "制作年",
+          "description": "2026"
+        },
+        {
+          "term": "種別",
+          "description": "動画（仮）"
+        },
+        {
+          "term": "担当",
+          "description": "編集"
         }
       ]
     }

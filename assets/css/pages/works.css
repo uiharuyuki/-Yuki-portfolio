@@ -7,3 +7,19 @@
         margin-bottom: 40px;
     }
 }
+
+/* カテゴリ別セクション（category が2種類以上あるときに出力される） */
+.works-category {
+    display: grid;
+    gap: clamp(16px, calc(2vw + 6.4px), 28px);
+}
+
+.works-category + .works-category {
+    margin-top: 56px;
+}
+
+.works-category-title {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1;
+}
