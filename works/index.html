@@ -43,8 +43,6 @@
     <link rel="stylesheet" href="../assets/css/pages/works.css">
     <script src="../assets/js/header.js" defer></script>
     <script src="../assets/js/loading.js" defer></script>
-    <script src="../assets/js/works-data.js" defer></script>
-    <script src="../assets/js/works-renderer.js" defer></script>
 </head>
 
 <body>
@@ -63,7 +61,88 @@
                 <div class="container works-container">
                     <h1 id="works-title" class="page-title">WORKS</h1>
 
-                    <div class="works-list" data-works-list data-image-prefix="../assets/images/works/" data-detail-prefix=""></div>
+                    <!-- build:works-list-index -->
+                    <div class="works-list">
+                        <article class="works-card">
+                            <div class="works-media" aria-hidden="true">
+                                <img src="../assets/images/works/vtuber-official/desktop.webp" width="1200" height="754" loading="lazy" decoding="async" alt="">
+                                <img src="../assets/images/works/vtuber-official/mobile.webp" width="360" height="728" loading="lazy" decoding="async" alt="">
+                            </div>
+                            <div class="works-content">
+                                <p class="works-genre">Web site / fictional</p>
+                                <h3>「Vtuber公式サイト」</h3>
+                                <dl class="works-meta">
+                                    <div>
+                                        <dt>使用技術</dt>
+                                        <dd>HTML / CSS / JavaScript</dd>
+                                    </div>
+                                </dl>
+                                <p>架空のvtuber公式サイト「on boom!」の制作。<br>オリジナルキャラクターを1から考案し、画像生成のAI技術を活用して制作しました。<br>CLIから使用するAIエージェントのコーディングを行った初めての制作です。</p>
+                                <a href="vtuber-official/" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+                            </div>
+                        </article>
+
+                        <article class="works-card">
+                            <div class="works-media" aria-hidden="true">
+                                <img src="../assets/images/works/katori-tourism/desktop.webp" width="1761" height="1106" loading="lazy" decoding="async" alt="">
+                                <img src="../assets/images/works/katori-tourism/mobile.webp" width="488" height="987" loading="lazy" decoding="async" alt="">
+                            </div>
+                            <div class="works-content">
+                                <p class="works-genre">LP / fictional</p>
+                                <h3>「香取観光ナビ」</h3>
+                                <dl class="works-meta">
+                                    <div>
+                                        <dt>使用技術</dt>
+                                        <dd>HTML / CSS / JavaScript / Gsap</dd>
+                                    </div>
+                                </dl>
+                                <p>架空の香取観光LPサイトの制作。<br>香取市の魅力である「佐原の町並み・景観」を伝えることを中心とした構成。</p>
+                                <a href="katori-tourism/" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+                            </div>
+                        </article>
+
+                        <article class="works-card">
+                            <div class="works-media" aria-hidden="true">
+                                <img src="../assets/images/works/recipe-search/desktop.webp" width="1761" height="1106" loading="lazy" decoding="async" alt="">
+                                <img src="../assets/images/works/recipe-search/mobile.webp" width="488" height="987" loading="lazy" decoding="async" alt="">
+                            </div>
+                            <div class="works-content">
+                                <p class="works-genre">Web app</p>
+                                <h3>「料理レシピ検索サイト」</h3>
+                                <dl class="works-meta">
+                                    <div>
+                                        <dt>使用技術</dt>
+                                        <dd>HTML / CSS / JavaScript</dd>
+                                    </div>
+                                </dl>
+                                <p>検索機能のあるWebアプリを想定したダミーテキストです。条件指定や一覧表示など、使いやすさを重視しています。</p>
+                                <a href="recipe-search/" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+                            </div>
+                        </article>
+
+                        <article class="works-card">
+                            <div class="works-media" aria-hidden="true">
+                                <img src="../assets/images/works/yuki-portfolio/desktop.webp" width="1200" height="675" loading="lazy" decoding="async" alt="">
+                                <img src="../assets/images/works/yuki-portfolio/mobile.webp" width="360" height="203" loading="lazy" decoding="async" alt="">
+                            </div>
+                            <div class="works-content">
+                                <p class="works-genre">Portfolio</p>
+                                <h3>「ポートフォリオサイト」</h3>
+                                <dl class="works-meta">
+                                    <div>
+                                        <dt>使用技術</dt>
+                                        <dd>HTML / CSS / JavaScript</dd>
+                                    </div>
+                                </dl>
+                                <p>個人制作サイトを想定したダミーテキストです。制作実績やプロフィールを見やすく伝える構成にしています。</p>
+                                <div class="works-links">
+                                    <a href="yuki-portfolio/" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+                                    <a href="https://lively-smoke-c63b.nirayuki15.workers.dev/" class="works-detail" target="_blank" rel="noopener noreferrer">制作記事を見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+                                    </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- /build:works-list-index -->
                 </div>
             </section>
         </main>
