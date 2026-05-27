@@ -29,6 +29,21 @@ Aboutのプロフィールは `data/about.json` を編集します。
 
 ## HTML生成
 
+このサイトでは、文章や作品情報の一部を `data/` と `content/` に分けて管理しています。ただし、ブラウザが実際に表示するのは `index.html` や `works/*/index.html` などのHTMLファイルです。
+
+そのため、元データを編集しただけではWeb表示には反映されません。元データからHTMLを書き出す作業が必要です。この書き出し作業を、このプロジェクトでは「ビルド」と呼びます。
+
+```txt
+data/works.json
+content/works/*.md
+data/about.json
+        ↓ npm run build
+index.html
+works/index.html
+works/*/index.html
+about.html
+```
+
 元データを変更したら、次のコマンドでHTMLへ反映します。
 
 ```bash
@@ -36,6 +51,20 @@ npm run build
 ```
 
 このコマンドは、トップページ、Works一覧、Aboutプロフィール、Works詳細ページを生成します。生成対象のHTMLを直接編集すると次回ビルドで上書きされるため、内容変更は元データ側で行います。
+
+### よく使う流れ
+
+1. `data/works.json` や `content/works/*.md` を編集する
+2. `npm run build` を実行する
+3. ブラウザでページを再読み込みして確認する
+4. 公開サイトへ反映する場合は、変更した元データと生成後のHTMLをcommit / pushする
+
+### 反映されないとき
+
+- `npm run build` を実行していない
+- ブラウザが古い表示をキャッシュしているため、再読み込みが必要
+- 生成後のHTMLではなく、元データだけを公開している
+- Markdownで段落を分けたい箇所に空行が入っていない
 
 ## 運用ルール
 
