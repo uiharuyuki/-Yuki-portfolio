@@ -9,40 +9,59 @@
 
     var timer = null;
 
+    function resetButton() {
+        btn.innerHTML = COPY_ICON;
+        btn.classList.remove("is-copied");
+        btn.setAttribute("aria-label", "メールアドレスをコピー");
+        timer = null;
+    }
+
+    function showCopied() {
+        btn.innerHTML = CHECK_ICON;
+        btn.classList.add("is-copied");
+        btn.setAttribute("aria-label", "コピーしました");
+        timer = setTimeout(resetButton, 2000);
+    }
+
+    function fallbackCopy(text) {
+        return new Promise(function (resolve, reject) {
+            var ta = document.createElement("textarea");
+            ta.value = text;
+            ta.setAttribute("readonly", "");
+            ta.style.cssText = "position:fixed;top:0;left:0;opacity:0;pointer-events:none";
+            document.body.appendChild(ta);
+            ta.select();
+
+            try {
+                if (document.execCommand("copy")) {
+                    resolve();
+                } else {
+                    reject(new Error("copy command failed"));
+                }
+            } catch (error) {
+                reject(error);
+            } finally {
+                document.body.removeChild(ta);
+            }
+        });
+    }
+
+    function copyText(text) {
+        if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+            return navigator.clipboard.writeText(text).catch(function () {
+                return fallbackCopy(text);
+            });
+        }
+
+        return fallbackCopy(text);
+    }
+
     btn.addEventListener("click", function () {
         if (timer) return; // 連打防止
 
-        navigator.clipboard.writeText(EMAIL).then(function () {
-            btn.innerHTML = CHECK_ICON;
-            btn.classList.add("is-copied");
-            btn.setAttribute("aria-label", "コピーしました");
-
-            timer = setTimeout(function () {
-                btn.innerHTML = COPY_ICON;
-                btn.classList.remove("is-copied");
-                btn.setAttribute("aria-label", "メールアドレスをコピー");
-                timer = null;
-            }, 2000);
-        }).catch(function () {
-            // clipboard API 非対応環境のフォールバック
-            var ta = document.createElement("textarea");
-            ta.value = EMAIL;
-            ta.style.cssText = "position:fixed;opacity:0";
-            document.body.appendChild(ta);
-            ta.select();
-            document.execCommand("copy");
-            document.body.removeChild(ta);
-
-            btn.innerHTML = CHECK_ICON;
-            btn.classList.add("is-copied");
-            btn.setAttribute("aria-label", "コピーしました");
-
-            timer = setTimeout(function () {
-                btn.innerHTML = COPY_ICON;
-                btn.classList.remove("is-copied");
-                btn.setAttribute("aria-label", "メールアドレスをコピー");
-                timer = null;
-            }, 2000);
+        copyText(EMAIL).then(showCopied).catch(function () {
+            btn.setAttribute("aria-label", "コピーできませんでした");
+            timer = setTimeout(resetButton, 2000);
         });
     });
 })();

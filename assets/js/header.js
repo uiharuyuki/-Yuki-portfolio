@@ -18,6 +18,14 @@ function getPathPrefix(element) {
     return element.hasAttribute("path-prefix") ? element.getAttribute("path-prefix") : SCRIPT_PATH_PREFIX;
 }
 
+function saveTheme(theme) {
+    try {
+        localStorage.setItem("yuki-theme", theme);
+    } catch (error) {
+        // Storage may be unavailable in some privacy or local-file contexts.
+    }
+}
+
 function makeNavLinks(currentPage, pathPrefix, labelKey) {
     return SITE_NAV_ITEMS.map((item) => {
         const isActive = item.id === currentPage;
@@ -112,7 +120,7 @@ class SiteHeader extends HTMLElement {
         themeBtn.addEventListener("click", () => {
             const next = getTheme() === "dark" ? "light" : "dark";
             document.documentElement.setAttribute("data-theme", next);
-            localStorage.setItem("yuki-theme", next);
+            saveTheme(next);
             applyThemeIcon(next);
         });
 
@@ -122,9 +130,32 @@ class SiteHeader extends HTMLElement {
             ring.className = "cursor-ring";
             document.body.appendChild(ring);
 
-            document.addEventListener("mousemove", (e) => {
-                ring.style.left = e.clientX + "px";
-                ring.style.top  = e.clientY + "px";
+            const target = { x: 0, y: 0 };
+            const current = { x: 0, y: 0 };
+            let hasPointer = false;
+
+            const renderCursor = () => {
+                current.x += (target.x - current.x) * 0.32;
+                current.y += (target.y - current.y) * 0.32;
+
+                if (Math.abs(target.x - current.x) < 0.1) current.x = target.x;
+                if (Math.abs(target.y - current.y) < 0.1) current.y = target.y;
+
+                ring.style.transform = `translate3d(${current.x}px, ${current.y}px, 0) translate(-50%, -50%)`;
+                requestAnimationFrame(renderCursor);
+            };
+
+            document.addEventListener("pointermove", (e) => {
+                target.x = e.clientX;
+                target.y = e.clientY;
+
+                if (!hasPointer) {
+                    current.x = target.x;
+                    current.y = target.y;
+                    hasPointer = true;
+                    ring.classList.add("is-visible");
+                    renderCursor();
+                }
             }, { passive: true });
 
             document.addEventListener("mouseover", (e) => {

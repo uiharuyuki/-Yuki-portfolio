@@ -3,7 +3,7 @@ const path = require("node:path");
 
 const rootDir = path.resolve(__dirname, "..");
 const siteUrl = "https://uiharuyuki.github.io/-Yuki-portfolio";
-const themeScript = "!function(){var d=document.documentElement;var t=localStorage.getItem('yuki-theme');var m=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';var c=d.classList.contains('contact-document');function s(){var w=window.innerWidth;d.style.setProperty('--viewport-width',w+'px');d.style.setProperty('--scrollbar-width',c?'0px':Math.max(0,w-d.clientWidth)+'px');d.style.setProperty('--page-frame-space',Math.min(24,Math.max(8,w*.0222))+'px')}d.setAttribute('data-theme',t||m);if(!c){d.style.overflowY='scroll'}s();if(!c){d.style.removeProperty('overflow-y')}window.addEventListener('resize',s)}();";
+const themeScript = "!function(){var d=document.documentElement;var t=null;try{t=localStorage.getItem('yuki-theme')}catch(e){}var m='light';try{m=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'}catch(e){}var c=d.classList.contains('contact-document');function s(){var w=window.innerWidth;d.style.setProperty('--viewport-width',w+'px');d.style.setProperty('--scrollbar-width',c?'0px':Math.max(0,w-d.clientWidth)+'px');d.style.setProperty('--page-frame-space',Math.min(24,Math.max(8,w*.0222))+'px')}d.setAttribute('data-theme',t||m);if(!c){d.style.overflowY='scroll'}s();if(!c){d.style.removeProperty('overflow-y')}window.addEventListener('resize',s)}();";
 const arrowSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>';
 
 const works = readJson("data/works.json");
@@ -168,7 +168,15 @@ ${indent(tags.map((tag) => `<li>${escapeHtml(tag)}</li>`).join("\n"), 4)}
 </ul>`;
 }
 
-function renderSpecs(specs) {
+function renderSpecs(work) {
+    const specs = [
+        ...work.detail.specs,
+        {
+            term: "使用技術",
+            description: formatTechnologies(work),
+        },
+    ];
+
     return `<dl>
 ${indent(specs.map((spec) => `<div>
     <dt>${escapeHtml(spec.term)}</dt>
@@ -243,14 +251,14 @@ function renderWorkDetailPage(work) {
             <div class="container">
 
                 <nav class="work-breadcrumb" aria-label="パンくずリスト">
-                    <a href="../">← Works</a>
+                    <a href="../">← Works一覧</a>
                 </nav>
 
                 <article class="work-detail">
 
                     <header class="work-detail-header">
                         ${indent(renderTagList(detail.primaryTags), 24).trimStart()}
-                        <h1>${escapeHtml(detail.title)}</h1>
+                        <h1>「${escapeHtml(detail.pageTitle)}」</h1>
                         ${indent(renderTagList(detail.secondaryTags), 24).trimStart()}
                     </header>
 
@@ -265,7 +273,7 @@ function renderWorkDetailPage(work) {
                         </section>
 
                         <aside class="work-detail-specs" aria-label="制作仕様">
-                            ${indent(renderSpecs(detail.specs), 28).trimStart()}
+                            ${indent(renderSpecs(work), 28).trimStart()}
                         </aside>
                     </div>
 

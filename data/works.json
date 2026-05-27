@@ -29,7 +29,6 @@
     ],
     "detail": {
       "pageTitle": "Vtuber公式サイト",
-      "title": "「Vtuber公式サイト」",
       "metaDescription": "架空のVTuber公式サイトの制作実績です。オリジナルキャラクターを主役に据えたWebサイトです。",
       "primaryTags": ["#website", "#fictional", "#original character"],
       "secondaryTags": ["#design", "#coding"],
@@ -45,10 +44,6 @@
         {
           "term": "担当",
           "description": "デザイン / コーディング / キャラクター制作"
-        },
-        {
-          "term": "使用技術",
-          "description": "HTML / CSS / JavaScript"
         }
       ]
     }
@@ -82,7 +77,6 @@
     ],
     "detail": {
       "pageTitle": "香取市観光LPサイト",
-      "title": "「香取市観光LPサイト」",
       "metaDescription": "香取市の魅力を伝える観光ランディングページの制作実績です。",
       "primaryTags": ["#LP", "#fictional"],
       "secondaryTags": ["#design", "#coding"],
@@ -98,10 +92,6 @@
         {
           "term": "担当",
           "description": "デザイン / コーディング"
-        },
-        {
-          "term": "使用技術",
-          "description": "HTML / CSS / JavaScript"
         }
       ]
     }
@@ -134,7 +124,6 @@
     ],
     "detail": {
       "pageTitle": "料理レシピ検索サイト",
-      "title": "「料理レシピ検索サイト」",
       "metaDescription": "日替わりレシピ検索機能を持つWebアプリの制作実績です。",
       "primaryTags": ["#web app", "#recipe"],
       "secondaryTags": ["#design", "#coding"],
@@ -150,10 +139,6 @@
         {
           "term": "担当",
           "description": "デザイン / コーディング"
-        },
-        {
-          "term": "使用技術",
-          "description": "HTML / CSS / JavaScript"
         }
       ]
     }
@@ -191,7 +176,6 @@
     ],
     "detail": {
       "pageTitle": "ポートフォリオサイト",
-      "title": "「ポートフォリオサイト」",
       "metaDescription": "個人制作のポートフォリオサイトの制作実績です。",
       "primaryTags": ["#portfolio", "#personal"],
       "secondaryTags": ["#design", "#coding"],
@@ -207,10 +191,6 @@
         {
           "term": "担当",
           "description": "デザイン / コーディング"
-        },
-        {
-          "term": "使用技術",
-          "description": "HTML / CSS / JavaScript"
         }
       ]
     }

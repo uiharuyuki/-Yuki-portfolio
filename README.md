@@ -23,6 +23,8 @@ Works一覧とトップページのWorksカードは `data/works.json` を編集
 
 Works詳細ページの本文は `content/works/` 配下のMarkdownを編集します。タイトル、タグ、制作仕様、画像情報などの構造化された情報は `data/works.json` に置きます。
 
+`data/works.json` の `description` は一覧カード用の短い要約です。`content/works/*.md` は詳細ページ本文です。使用技術などの基本情報は二重に書かず、必要な場所へビルド時に展開します。
+
 Aboutのプロフィールは `data/about.json` を編集します。
 
 ## HTML生成
