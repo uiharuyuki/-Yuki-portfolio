@@ -43,6 +43,8 @@
     <link rel="stylesheet" href="../assets/css/pages/works.css">
     <script src="../assets/js/header.js" defer></script>
     <script src="../assets/js/loading.js" defer></script>
+    <script src="../assets/js/works-data.js" defer></script>
+    <script src="../assets/js/works-renderer.js" defer></script>
 </head>
 
 <body>
@@ -61,63 +63,7 @@
                 <div class="container works-container">
                     <h1 id="works-title" class="page-title">WORKS</h1>
 
-                    <div class="works-list">
-
-                        <article class="works-card">
-                            <div class="works-media" aria-hidden="true">
-                                <img src="../assets/images/works/katori-tourism/desktop.webp" width="1761" height="1106" loading="lazy" decoding="async" alt="">
-                                <img src="../assets/images/works/katori-tourism/mobile.webp" width="488" height="987" loading="lazy" decoding="async" alt="">
-                            </div>
-                            <div class="works-content">
-                                <p class="works-category">LP / Branding</p>
-                                <h3>「香取市観光LPサイト」</h3>
-                                <p>香取市の魅力である「佐原の町並み」を全面に押し出したサイトデザイン。名物グルメの項目のロゴを自作し、魅力を伝える工夫をしました。</p>
-                                <a href="katori-tourism/" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
-                            </div>
-                        </article>
-
-                        <article class="works-card">
-                            <div class="works-media" aria-hidden="true">
-                                <img src="../assets/images/works/yuki-portfolio/desktop.webp" width="1200" height="675" loading="lazy" decoding="async" alt="">
-                                <img src="../assets/images/works/yuki-portfolio/mobile.webp" width="360" height="203" loading="lazy" decoding="async" alt="">
-                            </div>
-                            <div class="works-content">
-                                <p class="works-category">Portfolio / Personal</p>
-                                <h3>「ポートフォリオサイト」</h3>
-                                <p>制作実績やプロフィールを整理して見せる個人ポートフォリオサイトです。共通パーツとページ固有表現を分けて管理しています。</p>
-                                <div class="works-links">
-                                    <a href="yuki-portfolio/" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
-                                    <a href="https://lively-smoke-c63b.nirayuki15.workers.dev/" class="works-detail" target="_blank" rel="noopener noreferrer">制作記事を見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="works-card">
-                            <div class="works-media" aria-hidden="true">
-                                <img src="../assets/images/works/recipe-search/desktop.webp" width="1761" height="1106" loading="lazy" decoding="async" alt="">
-                                <img src="../assets/images/works/recipe-search/mobile.webp" width="488" height="987" loading="lazy" decoding="async" alt="">
-                            </div>
-                            <div class="works-content">
-                                <p class="works-category">Web app / Search</p>
-                                <h3>「料理レシピ検索サイト」</h3>
-                                <p>「ズボラでも簡単！今日のレシピが見つかる！」をコンセプトに制作。日替わりでレシピが入れ替わる導線を想定しています。</p>
-                                <a href="recipe-search/" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
-                            </div>
-                        </article>
-
-                        <article class="works-card">
-                            <div class="works-media" aria-hidden="true">
-                                <img src="../assets/images/works/vtuber-official/desktop.webp" width="1200" height="754" loading="lazy" decoding="async" alt="">
-                                <img src="../assets/images/works/vtuber-official/mobile.webp" width="360" height="728" loading="lazy" decoding="async" alt="">
-                            </div>
-                            <div class="works-content">
-                                <p class="works-category">Web site / Responsive</p>
-                                <h3>「Vtuber公式サイト」</h3>
-                                <p>架空のVTuber公式サイトを制作しました。オリジナルキャラクターを主役に据えた、遊び心のある構成で制作しています。</p>
-                                <a href="vtuber-official/" class="works-detail">詳しく見る<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
-                            </div>
-                        </article>
-                    </div>
+                    <div class="works-list" data-works-list data-image-prefix="../assets/images/works/" data-detail-prefix=""></div>
                 </div>
             </section>
         </main>

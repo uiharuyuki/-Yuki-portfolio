@@ -43,6 +43,8 @@
     <link rel="stylesheet" href="assets/css/pages/about.css">
     <script src="assets/js/header.js" defer></script>
     <script src="assets/js/loading.js" defer></script>
+    <script src="assets/js/about-data.js" defer></script>
+    <script src="assets/js/about-renderer.js" defer></script>
 </head>
 
 <body>
@@ -61,19 +63,12 @@
                 <div class="container">
                     <h1 id="about-title" class="page-title">ABOUT</h1>
 
-                    <div class="about-profile__inner">
-                        <div class="about-profile__image">
-                            <img src="assets/images/about/profile-main.jpg" width="640" height="853" decoding="async" alt="内山 倖徳のプロフィール画像">
-                        </div>
+                    <div class="about-profile__inner" data-about-profile data-image-prefix="assets/images/about/">
+                        <div class="about-profile__image" data-about-image></div>
 
                         <div class="about-profile__body">
-                            <h2>内山 倖徳</h2>
-                            <p>
-                                2006年に生まれ、千葉県で育ちました。<br>
-                                高校生活でデザインに興味を持ち、専門学校ではWeb制作に心を惹かれ、<br>
-                                Webを中心に取り組んできました。<br>
-                                現在、Web制作会社で勤務することを目標に就活中です。
-                            </p>
+                            <h2 data-about-name></h2>
+                            <p data-about-body></p>
                         </div>
                     </div>
                 </div>
