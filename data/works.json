@@ -24,6 +24,11 @@
     },
     "links": [
       {
+        "href": "https://uiharuyuki.github.io/on-boom/",
+        "label": "サイトを閲覧",
+        "external": true
+      },
+      {
         "type": "detail",
         "label": "詳しく見る"
       }
@@ -73,6 +78,11 @@
     },
     "links": [
       {
+        "href": "https://uiharuyuki.github.io/katori-LP/",
+        "label": "サイトを閲覧",
+        "external": true
+      },
+      {
         "type": "detail",
         "label": "詳しく見る"
       }
@@ -102,8 +112,8 @@
     "slug": "yuki-portfolio",
     "genre": "Portfolio",
     "title": "「ポートフォリオサイト」",
-    "technologies": ["HTML", "CSS", "JavaScript"],
-    "aiTools": [],
+    "technologies": ["HTML", "CSS", "JavaScript", "Web Components", "Node.js"],
+    "aiTools": ["chatgpt（壁打ち）", "chatgpt（ChatGPT Images 2.0）", "Claude Code", "codex"],
     "description": [
       "個人制作サイトを想定したダミーテキストです。制作実績やプロフィールを見やすく伝える構成にしています。"
     ],
@@ -121,18 +131,18 @@
     },
     "links": [
       {
-        "type": "detail",
-        "label": "詳しく見る"
-      },
-      {
-        "href": "https://lively-smoke-c63b.nirayuki15.workers.dev/",
-        "label": "制作記事を見る",
-        "external": true
-      },
-      {
         "href": "https://www.figma.com/design/V8ojPcIqU7cCUqafMSIOQk/Portfolio---web?node-id=125-219&t=8fBHYAhFzmWxiH77-1",
         "label": "Figmaデータを閲覧",
         "external": true
+      },
+      {
+        "href": "https://lively-smoke-c63b.nirayuki15.workers.dev/",
+        "label": "制作秘話",
+        "external": true
+      },
+      {
+        "type": "detail",
+        "label": "詳しく見る"
       }
     ],
     "detail": {
@@ -185,6 +195,11 @@
       }
     },
     "links": [
+      {
+        "href": "https://uiharuyuki.github.io/zubora-resipi/",
+        "label": "サイトを閲覧",
+        "external": true
+      },
       {
         "type": "detail",
         "label": "詳しく見る"
