@@ -88,6 +88,11 @@
     line-height: 1.9;
 }
 
+.work-detail-description .work-note {
+    font-size: 12px;
+    opacity: 0.55;
+}
+
 /* ---- specs sidebar ---- */
 .work-detail-specs {
     border: 1px solid var(--color-border);

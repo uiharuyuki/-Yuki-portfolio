@@ -157,6 +157,12 @@ function markdownToHtml(markdown) {
                 return `<h${level}>${escapeHtml(heading[2])}</h${level}>`;
             }
 
+            const note = lines.length === 1 && lines[0].match(/^_(.+)_$/);
+
+            if (note) {
+                return `<p class="work-note">${escapeHtml(note[1])}</p>`;
+            }
+
             return `<p>${lines.map(escapeHtml).join("<br>\n")}</p>`;
         })
         .join("\n");
