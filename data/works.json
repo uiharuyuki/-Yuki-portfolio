@@ -115,7 +115,8 @@
     "technologies": ["HTML", "CSS", "JavaScript", "Web Components", "Node.js"],
     "aiTools": ["chatgpt（壁打ち）", "chatgpt（ChatGPT Images 2.0）", "Claude Code", "codex"],
     "description": [
-      "個人制作サイトを想定したダミーテキストです。制作実績やプロフィールを見やすく伝える構成にしています。"
+      "portfolioサイト「Yuki portfolio」の制作。",
+      "最近トレンドのAppleで採用されている「グラスモーフィズム・ミニマルデザイン」を取り入れ、シンプルで洗練されたportfolioサイトを制作しました。"
     ],
     "images": {
       "desktop": {
@@ -147,7 +148,7 @@
     ],
     "detail": {
       "pageTitle": "ポートフォリオサイト",
-      "metaDescription": "個人制作のポートフォリオサイトの制作実績です。",
+      "metaDescription": "portfolioサイト「Yuki portfolio」の制作実績です。",
       "primaryTags": ["#portfolio", "#personal"],
       "secondaryTags": ["#design", "#coding"],
       "links": [

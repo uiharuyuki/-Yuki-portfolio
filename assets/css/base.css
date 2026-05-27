@@ -36,6 +36,9 @@
     --viewport-width: 100vw;
     --scrollbar-width: 0px;
     --font-base: YakuHanJP, "Albert Sans", "Zen Kaku Gothic New", sans-serif;
+
+    /* === タイポグラフィ === */
+    --title-font-size: clamp(32px, calc(2.667vw + 19.2px), 48px); /* WORKS / ABOUT などページ・セクション見出し共通 */
 }
 
 /* ========== ダークモード ========== */
