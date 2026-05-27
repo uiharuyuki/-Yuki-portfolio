@@ -4,6 +4,7 @@
     "genre": "Web site / fictional / original character",
     "title": "「Vtuber公式サイト」",
     "technologies": ["HTML", "CSS", "JavaScript"],
+    "aiTools": ["days-ai", "niji・journey", "gemini（nanobanana）", "gemini（壁打ち）", "Claude Code", "codex"],
     "description": [
       "架空のvtuber公式サイト「on boom!」の制作。",
       "オリジナルキャラクターの考案・画像生成・WebサイトのコーディングまでをAi技術を活用して行いました。",
@@ -53,9 +54,10 @@
     "genre": "LP / fictional",
     "title": "「香取観光ナビ」",
     "technologies": ["HTML", "CSS", "JavaScript", "Gsap"],
+    "aiTools": ["claude（コード生成）", "gemini（壁打ち）"],
     "description": [
-      "架空の香取観光LPサイトの制作。",
-      "香取市の魅力である「佐原の町並み・景観」を伝えることを中心とした構成。"
+      "架空の香取観光LPサイト「香取観光ナビ」の制作。",
+      "香取市の魅力である「佐原の町並み・景観」を伝えることを目的に、景観を活かしたファストビューの映像と、スクロールに合わせたGsapアニメーションを実装しました。"
     ],
     "images": {
       "desktop": {
@@ -77,7 +79,7 @@
     ],
     "detail": {
       "pageTitle": "香取市観光LPサイト",
-      "metaDescription": "香取市の魅力を伝える観光ランディングページの制作実績です。",
+      "metaDescription": "架空の香取観光LPサイト「香取観光ナビ」の制作実績です。",
       "primaryTags": ["#LP", "#fictional"],
       "secondaryTags": ["#design", "#coding"],
       "specs": [
@@ -97,10 +99,76 @@
     }
   },
   {
+    "slug": "yuki-portfolio",
+    "genre": "Portfolio",
+    "title": "「ポートフォリオサイト」",
+    "technologies": ["HTML", "CSS", "JavaScript"],
+    "aiTools": [],
+    "description": [
+      "個人制作サイトを想定したダミーテキストです。制作実績やプロフィールを見やすく伝える構成にしています。"
+    ],
+    "images": {
+      "desktop": {
+        "src": "yuki-portfolio/desktop.webp",
+        "width": 1200,
+        "height": 675
+      },
+      "mobile": {
+        "src": "yuki-portfolio/mobile.webp",
+        "width": 360,
+        "height": 203
+      }
+    },
+    "links": [
+      {
+        "type": "detail",
+        "label": "詳しく見る"
+      },
+      {
+        "href": "https://lively-smoke-c63b.nirayuki15.workers.dev/",
+        "label": "制作記事を見る",
+        "external": true
+      },
+      {
+        "href": "https://www.figma.com/design/V8ojPcIqU7cCUqafMSIOQk/Portfolio---web?node-id=125-219&t=8fBHYAhFzmWxiH77-1",
+        "label": "Figmaデータを閲覧",
+        "external": true
+      }
+    ],
+    "detail": {
+      "pageTitle": "ポートフォリオサイト",
+      "metaDescription": "個人制作のポートフォリオサイトの制作実績です。",
+      "primaryTags": ["#portfolio", "#personal"],
+      "secondaryTags": ["#design", "#coding"],
+      "links": [
+        {
+          "href": "https://www.figma.com/design/V8ojPcIqU7cCUqafMSIOQk/Portfolio---web?node-id=125-219&t=8fBHYAhFzmWxiH77-1",
+          "label": "Figmaデータを閲覧",
+          "external": true
+        }
+      ],
+      "specs": [
+        {
+          "term": "制作年",
+          "description": "2026"
+        },
+        {
+          "term": "種別",
+          "description": "ポートフォリオサイト"
+        },
+        {
+          "term": "担当",
+          "description": "デザイン / コーディング"
+        }
+      ]
+    }
+  },
+  {
     "slug": "recipe-search",
     "genre": "Web app",
     "title": "「料理レシピ検索サイト」",
     "technologies": ["HTML", "CSS", "JavaScript"],
+    "aiTools": [],
     "description": [
       "検索機能のあるWebアプリを想定したダミーテキストです。条件指定や一覧表示など、使いやすさを重視しています。"
     ],
@@ -135,58 +203,6 @@
         {
           "term": "種別",
           "description": "Webアプリ（架空）"
-        },
-        {
-          "term": "担当",
-          "description": "デザイン / コーディング"
-        }
-      ]
-    }
-  },
-  {
-    "slug": "yuki-portfolio",
-    "genre": "Portfolio",
-    "title": "「ポートフォリオサイト」",
-    "technologies": ["HTML", "CSS", "JavaScript"],
-    "description": [
-      "個人制作サイトを想定したダミーテキストです。制作実績やプロフィールを見やすく伝える構成にしています。"
-    ],
-    "images": {
-      "desktop": {
-        "src": "yuki-portfolio/desktop.webp",
-        "width": 1200,
-        "height": 675
-      },
-      "mobile": {
-        "src": "yuki-portfolio/mobile.webp",
-        "width": 360,
-        "height": 203
-      }
-    },
-    "links": [
-      {
-        "type": "detail",
-        "label": "詳しく見る"
-      },
-      {
-        "href": "https://lively-smoke-c63b.nirayuki15.workers.dev/",
-        "label": "制作記事を見る",
-        "external": true
-      }
-    ],
-    "detail": {
-      "pageTitle": "ポートフォリオサイト",
-      "metaDescription": "個人制作のポートフォリオサイトの制作実績です。",
-      "primaryTags": ["#portfolio", "#personal"],
-      "secondaryTags": ["#design", "#coding"],
-      "specs": [
-        {
-          "term": "制作年",
-          "description": "2026"
-        },
-        {
-          "term": "種別",
-          "description": "ポートフォリオサイト"
         },
         {
           "term": "担当",

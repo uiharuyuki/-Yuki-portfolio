@@ -147,7 +147,7 @@ function markdownToHtml(markdown) {
     }
 
     return normalizedMarkdown
-        .split(/\n{2,}/)
+        .split(/\n[ \t]*\n/)
         .map((block) => {
             const lines = block.split("\n").map((line) => line.trim());
             const heading = lines.length === 1 && lines[0].match(/^(#{2,6})\s+(.+)$/);
@@ -157,7 +157,7 @@ function markdownToHtml(markdown) {
                 return `<h${level}>${escapeHtml(heading[2])}</h${level}>`;
             }
 
-            return `<p>${lines.map(escapeHtml).join("\n")}</p>`;
+            return `<p>${lines.map(escapeHtml).join("<br>\n")}</p>`;
         })
         .join("\n");
 }
@@ -177,12 +177,33 @@ function renderSpecs(work) {
         },
     ];
 
+    if (Array.isArray(work.aiTools) && work.aiTools.length > 0) {
+        specs.push({
+            term: "使用したAI",
+            description: work.aiTools.join(" / "),
+        });
+    }
+
     return `<dl>
 ${indent(specs.map((spec) => `<div>
     <dt>${escapeHtml(spec.term)}</dt>
     <dd>${escapeHtml(spec.description)}</dd>
 </div>`).join("\n"), 4)}
 </dl>`;
+}
+
+function renderDetailLinks(detail) {
+    if (!Array.isArray(detail.links) || detail.links.length === 0) {
+        return "";
+    }
+
+    const links = detail.links.map((link) => {
+        const externalAttributes = link.external ? ' target="_blank" rel="noopener noreferrer"' : "";
+
+        return `<a href="${escapeHtml(link.href)}" class="works-detail"${externalAttributes}>${escapeHtml(link.label)}${arrowSvg}</a>`;
+    });
+
+    return `\n<div class="work-detail-links">\n${indent(links.join("\n"), 4)}\n</div>`;
 }
 
 function renderWorkDetailPage(work) {
@@ -273,7 +294,7 @@ function renderWorkDetailPage(work) {
                         </section>
 
                         <aside class="work-detail-specs" aria-label="制作仕様">
-                            ${indent(renderSpecs(work), 28).trimStart()}
+                            ${indent(renderSpecs(work), 28).trimStart()}${indent(renderDetailLinks(detail), 28)}
                         </aside>
                     </div>
 

@@ -176,7 +176,7 @@ site-footer {
         "brand nav spacer"
         "brand copyright spacer";
     align-items: start;
-    padding-block: 16px 12px;
+    padding: 16px clamp(18px, 2.5vw, 32px) 12px;
     background-color: var(--color-base);
 }
 

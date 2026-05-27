@@ -23,7 +23,29 @@ Works一覧とトップページのWorksカードは `data/works.json` を編集
 
 Works詳細ページの本文は `content/works/` 配下のMarkdownを編集します。タイトル、タグ、制作仕様、画像情報などの構造化された情報は `data/works.json` に置きます。
 
-`data/works.json` の `description` は一覧カード用の短い要約です。`content/works/*.md` は詳細ページ本文です。使用技術などの基本情報は二重に書かず、必要な場所へビルド時に展開します。
+`data/works.json` の `description` は一覧カード用の短い要約です。`content/works/*.md` は詳細ページ本文です。使用技術や使用したAIなどの基本情報は二重に書かず、必要な場所へビルド時に展開します。
+
+Works詳細ページ本文では、Markdown内の通常の改行はWeb表示でも改行として反映されます。空行を入れると段落が分かれ、表示上も間隔が空きます。
+
+使用したAIは `data/works.json` の `aiTools` に配列で記載します。空配列 `[]` の場合、詳細ページには表示されません。
+
+```json
+"aiTools": ["ChatGPT", "Claude", "niji・journey"]
+```
+
+詳細ページだけに表示したい外部リンクは `detail.links` に記載します。トップページやWorks一覧カードには表示されません。
+
+```json
+"detail": {
+  "links": [
+    {
+      "href": "https://www.figma.com/design/...",
+      "label": "Figmaデータを見る",
+      "external": true
+    }
+  ]
+}
+```
 
 Aboutのプロフィールは `data/about.json` を編集します。
 
