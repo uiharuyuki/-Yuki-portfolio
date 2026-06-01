@@ -56,16 +56,15 @@
 .works-card {
     --works-media-column: minmax(0, 1fr);
     --works-content-column: minmax(260px, 0.82fr);
-    --works-media-height: clamp(220px, calc(8.333vw + 180px), 270px);
-    --works-submedia-width: clamp(92px, calc(3.833vw + 73.6px), 115px);
-    --works-submedia-height: clamp(194px, calc(7.333vw + 158.8px), 238px);
+    /* サブ画像（スマホmock）はmedia列に対する割合で指定し、幅が変わっても比率を保つ */
+    --works-submedia-width: 22.5%;
     --works-submedia-overlap: clamp(18px, calc(2.333vw + 6.8px), 32px);
 
     display: grid;
     grid-template-columns: var(--works-media-column) var(--works-content-column);
     gap: 40px;
     align-items: center;
-    min-height: calc(var(--works-media-height) + 48px);
+    min-height: 0;
     padding: 24px 56px;
     border: 1px solid var(--color-border);
     border-radius: 8px;
@@ -89,19 +88,20 @@
     grid-template-columns: minmax(0, 1fr) var(--works-submedia-width);
     align-items: end;
     gap: 0;
-    min-height: var(--works-media-height);
 }
 
+/* メイン画像（PC mock）は幅基準で高さは自動。レターボックスを作らず列幅いっぱいに表示する */
 .works-media img:first-child {
     width: 100%;
-    height: var(--works-media-height);
+    height: auto;
     object-fit: contain;
     object-position: center bottom;
 }
 
+/* サブ画像（スマホmock）も幅基準。PC mockよりわずかに低い高さでPCの右下に重ねる */
 .works-media img:last-child:not(:only-child) {
     width: 100%;
-    height: var(--works-submedia-height);
+    height: auto;
     object-fit: contain;
     object-position: center bottom;
     transform: translateX(calc(var(--works-submedia-overlap) * -1));
@@ -197,16 +197,15 @@
     flex-shrink: 0;
 }
 
-@media (max-width: 767px) {
+/* 縦積みレイアウト。2列に切り替わると同じ画面幅でmockが約半分になるため、
+   切替直前と直後の大きさが揃うよう、縦積み側のmockに上限を設けて中央寄せする */
+@media (max-width: 1199px) {
     .works-card {
-        --works-media-height: auto;
         --works-submedia-width: 22%;
-        --works-submedia-height: auto;
         --works-submedia-overlap: 0;
 
         grid-template-columns: 1fr;
         gap: 20px;
-        min-height: 0;
         padding-block: 24px;
         padding-inline: clamp(12px, calc(2vw + 2.4px), 24px);
     }
@@ -221,7 +220,8 @@
     }
 
     .works-media {
-        min-height: 0;
+        max-width: 470px;
+        margin-inline: auto;
     }
 
     .works-media img:last-child {
