@@ -240,6 +240,7 @@
     "featured": false,
     "category": "Video",
     "genre": "Movie / sample",
+    "title": "「サンプル動画作品」",
     "metaLabel": "使用ソフト",
     "technologies": ["Premiere Pro", "After Effects"],
     "aiTools": [],
