@@ -77,6 +77,12 @@ function renderWorksLink(link, work, detailPrefix) {
     return `<a href="${escapeHtml(href)}" class="works-detail"${externalAttributes}>${escapeHtml(link.label)}${arrowSvg}</a>`;
 }
 
+function renderIconLinks(prefix) {
+    return `<link rel="icon" href="${prefix}assets/images/icons/favicon.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="${prefix}assets/images/icons/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="${prefix}site.webmanifest">`;
+}
+
 function renderDescriptionLines(lines) {
     return lines.map(escapeHtml).join("<br>");
 }
@@ -241,12 +247,44 @@ ${indent(specs.map((spec) => `<div>
 </dl>`;
 }
 
-function renderDetailLinks(detail) {
-    if (!Array.isArray(detail.links) || detail.links.length === 0) {
+function getDetailLinks(work) {
+    const links = [];
+    const seen = new Set();
+
+    function addLink(link) {
+        if (!link || !link.href) {
+            return;
+        }
+
+        const key = `${link.href}\n${link.label || ""}`;
+
+        if (seen.has(key)) {
+            return;
+        }
+
+        seen.add(key);
+        links.push(link);
+    }
+
+    if (Array.isArray(work.links)) {
+        work.links.forEach(addLink);
+    }
+
+    if (Array.isArray(work.detail.links)) {
+        work.detail.links.forEach(addLink);
+    }
+
+    return links;
+}
+
+function renderDetailLinks(work) {
+    const detailLinks = getDetailLinks(work);
+
+    if (detailLinks.length === 0) {
         return "";
     }
 
-    const links = detail.links.map((link) => {
+    const links = detailLinks.map((link) => {
         const externalAttributes = link.external ? ' target="_blank" rel="noopener noreferrer"' : "";
 
         return `<a href="${escapeHtml(link.href)}" class="works-detail"${externalAttributes}>${escapeHtml(link.label)}${arrowSvg}</a>`;
@@ -278,7 +316,7 @@ function renderWorkDetailPage(work) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no,email=no,address=no">
     <link rel="canonical" href="${escapeHtml(workUrl)}">
-    <link rel="icon" href="../../assets/images/icons/favicon.svg" type="image/svg+xml">
+    ${renderIconLinks("../../")}
 
     <!-- OGP -->
     <meta property="og:url" content="${escapeHtml(workUrl)}">
@@ -347,7 +385,7 @@ function renderWorkDetailPage(work) {
                         </section>
 
                         <aside class="work-detail-specs" aria-label="制作仕様">
-                            ${indent(renderSpecs(work), 28).trimStart()}${indent(renderDetailLinks(detail), 28)}
+                            ${indent(renderSpecs(work), 28).trimStart()}${indent(renderDetailLinks(work), 28)}
                         </aside>
                     </div>
 
