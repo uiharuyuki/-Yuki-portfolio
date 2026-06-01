@@ -199,6 +199,7 @@
 
 @media (max-width: 767px) {
     .works-card {
+        --works-media-height: auto;
         --works-submedia-width: 22%;
         --works-submedia-height: auto;
         --works-submedia-overlap: 0;
@@ -219,28 +220,11 @@
         order: initial;
     }
 
-    /* デスクトップ画像の高さを固定して、SPモックが相対的に小さく見えるよう制御 */
     .works-media {
-        position: relative;
-        display: block;
-        height: clamp(160px, 50vw, 210px);
-        overflow: hidden;
+        min-height: 0;
     }
 
-    .works-media img:first-child {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center top;
-    }
-
-    /* SPモック：28% → 22%（高さを比率で抑制） */
     .works-media img:last-child {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        width: 22%;
-        height: auto;
         transform: none;
     }
 }
