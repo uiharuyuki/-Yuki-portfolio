@@ -236,6 +236,57 @@
     }
   },
   {
+    "slug": "html-prompts",
+    "featured": false,
+    "category": "Document",
+    "genre": "Document / HTML slide",
+    "title": "「HTMLスライド制作ワークフロー」",
+    "technologies": ["HTML", "CSS", "JavaScript"],
+    "aiTools": ["Claude Code", "Codex"],
+    "description": [
+      "AIを活用したHTMLスライド制作の再現性あるワークフローをまとめたドキュメント。",
+      "毎回ゼロから始めていた制作工程を5段階・8ステップに体系化し、prompt設計・管理手法も含めた再利用可能なフローを設計しました。"
+    ],
+    "images": {
+      "desktop": {
+        "src": "html-prompts/desktop.webp",
+        "width": 1200,
+        "height": 675
+      }
+    },
+    "links": [
+      {
+        "href": "https://uiharuyuki.github.io/niray-04_html-prompts/",
+        "label": "スライドを閲覧",
+        "external": true
+      },
+      {
+        "type": "detail",
+        "label": "詳しく見る"
+      }
+    ],
+    "detail": {
+      "pageTitle": "HTMLスライド制作ワークフロー",
+      "metaDescription": "AIを活用したHTMLスライド制作の再現性あるワークフローをまとめたドキュメントです。制作工程の体系化とprompt設計・管理手法を含みます。",
+      "primaryTags": ["#HTML slide", "#document", "#workflow"],
+      "secondaryTags": ["#coding", "#AI"],
+      "specs": [
+        {
+          "term": "制作年",
+          "description": "2026"
+        },
+        {
+          "term": "種別",
+          "description": "HTMLスライド"
+        },
+        {
+          "term": "担当",
+          "description": "設計 / コーディング"
+        }
+      ]
+    }
+  },
+  {
     "slug": "sample-video",
     "featured": false,
     "category": "Video",

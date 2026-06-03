@@ -309,11 +309,11 @@ function renderWorkDetailPage(work) {
 <html lang="ja">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>${themeScript}</script>
     <title>${escapeHtml(detail.pageTitle)} | Works | Yuki Portfolio</title>
     <meta name="author" content="内山 倖徳">
     <meta name="description" content="${escapeHtml(detail.metaDescription)}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no,email=no,address=no">
     <link rel="canonical" href="${escapeHtml(workUrl)}">
     ${renderIconLinks("../../")}
