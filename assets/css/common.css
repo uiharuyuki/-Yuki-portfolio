@@ -251,6 +251,8 @@ site-footer {
 
 /* ========== ローディングオーバーレイ ========== */
 #loading-overlay {
+    --loading-pixel: clamp(4px, calc(0.667vw + 0.8px), 8px);
+
     position: fixed;
     top: 0;
     right: auto;
@@ -259,62 +261,176 @@ site-footer {
     width: var(--viewport-width);
     z-index: 10000;
     background-color: var(--color-loading-background);
+    background-image:
+        linear-gradient(90deg, var(--color-loading-grid) 1px, transparent 1px),
+        linear-gradient(var(--color-loading-grid) 1px, transparent 1px);
+    background-size: 4em 4em;
     color: var(--color-loading-text);
+    font-size: var(--loading-pixel);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 28px;
-    transition: opacity 0.5s ease;
+    gap: clamp(20px, calc(1.333vw + 13.6px), 28px);
+    overflow: hidden;
+    transition: opacity 0.5s steps(5, end);
 }
 
-/* 二重リング：外輪（静的）＋ 弧（回転） */
+#loading-overlay::before,
+#loading-overlay::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+}
+
+#loading-overlay::before {
+    inset: var(--page-frame-space);
+    border: 3px solid currentColor;
+    opacity: 0.16;
+    box-shadow: inset 0 0 0 1px var(--color-loading-window);
+}
+
+#loading-overlay::after {
+    top: 50%;
+    left: 50%;
+    width: var(--loading-pixel);
+    height: var(--loading-pixel);
+    background: var(--color-loading-pixel-soft);
+    box-shadow:
+        -42vw -28vh 0 var(--color-loading-pixel-soft),
+        -27vw -10vh 0 var(--color-loading-pixel-soft),
+        -16vw 22vh 0 var(--color-loading-pixel-soft),
+        18vw -24vh 0 var(--color-loading-pixel-soft),
+        34vw -5vh 0 var(--color-loading-pixel-soft),
+        40vw 21vh 0 var(--color-loading-pixel-soft),
+        -34vw 31vh 0 var(--color-loading-pixel-soft),
+        8vw 32vh 0 var(--color-loading-pixel-soft);
+    animation: loading-pixels-blink 1.2s steps(2, end) infinite;
+}
+
+/* ドット絵のローディングウィンドウ */
 .loading-ring {
     position: relative;
+    z-index: 1;
     display: block;
-    width: 44px;
-    height: 44px;
+    width: 18em;
+    height: 9em;
     flex-shrink: 0;
+    border: 3px solid currentColor;
+    border-radius: 0;
+    background-color: var(--color-loading-window);
+    box-shadow: 1em 1em 0 var(--color-loading-shadow);
+    animation: loading-window-bounce 1.4s steps(2, end) infinite;
 }
 
 .loading-ring::before,
 .loading-ring::after {
     content: '';
     position: absolute;
-    inset: 0;
-    border-radius: 50%;
+    border-radius: 0;
 }
 
-/* 外輪：薄く静的 */
 .loading-ring::before {
-    border: 1.5px solid var(--color-loading-text);
-    opacity: 0.15;
+    left: 2em;
+    bottom: 2em;
+    width: 14em;
+    height: 1em;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--color-loading-accent) 0 1em,
+        transparent 1em 2em
+    );
+    clip-path: inset(0 100% 0 0);
+    animation: loading-bar-fill 1.4s steps(7, end) infinite;
 }
 
-/* 弧：回転 */
 .loading-ring::after {
-    border: 1.5px solid transparent;
-    border-top-color: var(--color-loading-text);
-    animation: loading-spin 0.85s linear infinite;
+    top: 2em;
+    left: 7em;
+    width: 1em;
+    height: 1em;
+    background: currentColor;
+    box-shadow:
+        1em 0 0 currentColor,
+        2em 0 0 currentColor,
+        -1em 1em 0 currentColor,
+        0 1em 0 var(--color-loading-accent),
+        1em 1em 0 var(--color-loading-accent),
+        2em 1em 0 var(--color-loading-accent),
+        3em 1em 0 currentColor,
+        0 2em 0 currentColor,
+        1em 2em 0 currentColor,
+        2em 2em 0 currentColor;
+    animation: loading-pixel-face 1.4s steps(2, end) infinite;
 }
 
-@keyframes loading-spin {
-    to { transform: rotate(360deg); }
+@keyframes loading-window-bounce {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -4px; }
+}
+
+@keyframes loading-bar-fill {
+    0% { clip-path: inset(0 100% 0 0); }
+    100% { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes loading-pixel-face {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 1em 0; }
+}
+
+@keyframes loading-pixels-blink {
+    0%, 100% { opacity: 0.28; }
+    50% { opacity: 1; }
 }
 
 #loading-overlay p {
+    position: relative;
+    z-index: 1;
     margin: 0;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
+    padding: 10px 16px 11px;
+    border: 3px solid currentColor;
+    background-color: var(--color-loading-window);
+    box-shadow: var(--loading-pixel) var(--loading-pixel) 0 var(--color-loading-shadow);
+    font-family: var(--font-dot);
+    font-size: clamp(14px, calc(0.667vw + 10.8px), 18px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    opacity: 0.45;
     color: currentColor;
+}
+
+#loading-overlay p::after {
+    content: "▮";
+    margin-left: 0.25em;
+    color: var(--color-loading-accent-strong);
+    animation: loading-cursor-blink 1s steps(2, end) infinite;
+}
+
+@keyframes loading-cursor-blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
 }
 
 #loading-overlay.is-hiding {
     opacity: 0;
     pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #loading-overlay::after,
+    .loading-ring,
+    .loading-ring::before,
+    .loading-ring::after,
+    #loading-overlay p::after {
+        animation: none;
+    }
+
+    .loading-ring::before {
+        clip-path: inset(0 0 0 0);
+    }
 }
 
 /* ハンバーガーボタン・モバイルメニュー（常時定義） */
