@@ -7,6 +7,8 @@
 .page-title {
     margin: 0 0 48px;
     text-align: center;
+    font-family: var(--font-dot);
+    font-weight: 400; /* DotGothic16は400のみ。合成ボールドの滲み防止 */
     font-size: var(--title-font-size);
     line-height: 1;
 }
@@ -21,6 +23,27 @@
     margin: 0;
 }
 /******************************* page *******************************/
+
+/******************************* rpg window *******************************/
+/* ファーストビューのメッセージウィンドウと同じ二重枠。枠と背景だけ提供し、フォントは使う側で決める */
+.rpg-window {
+    position: relative;
+    padding: 18px 24px;
+    border: 3px solid var(--color-window-border);
+    border-radius: 6px;
+    background: var(--color-window-background);
+    color: var(--color-window-text);
+}
+
+.rpg-window::before {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    border: 1px solid var(--color-window-border);
+    border-radius: 3px;
+    pointer-events: none;
+}
+/******************************* rpg window *******************************/
 
 /******************************* works tags *******************************/
 .works-tags {
@@ -140,7 +163,8 @@
 
 .works-meta > div {
     display: grid;
-    grid-template-columns: 5em minmax(0, 1fr);
+    /* ラベルは「使用技術」「使用ソフト」など可変。letter-spacing分の溢れで折り返さないようmax-contentにする */
+    grid-template-columns: max-content minmax(0, 1fr);
     column-gap: 8px;
 }
 
@@ -195,6 +219,11 @@
 
 .works-detail svg {
     flex-shrink: 0;
+    transition: translate 0.2s steps(2, end);
+}
+
+.works-detail:hover svg {
+    translate: 3px 0;
 }
 
 /* 縦積みレイアウト。2列に切り替わると同じ画面幅でmockが約半分になるため、

@@ -295,6 +295,8 @@ function renderDetailLinks(work) {
 
 function renderWorkDetailPage(work) {
     const detail = work.detail;
+    // タグはタイトル下の1箇所にまとめて表示する（旧 primary / secondary を統合、重複は除去）。
+    const detailTags = [...new Set([...(detail.primaryTags || []), ...(detail.secondaryTags || [])])];
     const desktopImage = work.images.desktop;
     const mobileImage = work.images.mobile;
     const workUrl = `${siteUrl}/works/${work.slug}/`;
@@ -337,7 +339,7 @@ function renderWorkDetailPage(work) {
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;700&family=DotGothic16&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@4.1.1/dist/css/yakuhanjp.css">
 
     <link rel="stylesheet" href="../../assets/css/kiso.css">
@@ -347,6 +349,7 @@ function renderWorkDetailPage(work) {
     <link rel="stylesheet" href="../../assets/css/pages/work-detail.css">
     <script src="../../assets/js/header.js" defer></script>
     <script src="../../assets/js/loading.js" defer></script>
+    <script src="../../assets/js/reveal.js" defer></script>
 </head>
 
 <body>
@@ -370,9 +373,8 @@ function renderWorkDetailPage(work) {
                 <article class="work-detail">
 
                     <header class="work-detail-header">
-                        ${indent(renderTagList(detail.primaryTags), 24).trimStart()}
                         <h1>「${escapeHtml(detail.pageTitle)}」</h1>
-                        ${indent(renderTagList(detail.secondaryTags), 24).trimStart()}
+                        ${indent(renderTagList(detailTags), 24).trimStart()}
                     </header>
 
                     <div class="work-detail-media">

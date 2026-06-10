@@ -36,6 +36,24 @@
     --viewport-width: 100vw;
     --scrollbar-width: 0px;
     --font-base: YakuHanJP, "Albert Sans", "Zen Kaku Gothic New", sans-serif;
+    --font-dot: "DotGothic16", "Zen Kaku Gothic New", sans-serif;
+
+    /* === ファーストビュー演出 === */
+    --color-fv-title: #ffffff;
+    --color-fv-title-shadow: rgb(20 60 110 / 55%);
+    --color-fv-window-background: rgb(255 255 255 / 85%);
+    --color-fv-window-border: #2b4a6b;
+    --color-fv-window-text: #1c2a38;
+
+    /* === RPG窓部品(component.cssの.rpg-window)。実体はFV変数でテーマ追従する === */
+    --color-window-background: var(--color-fv-window-background);
+    --color-window-border: var(--color-fv-window-border);
+    --color-window-text: var(--color-fv-window-text);
+    --color-fv-cloud: rgb(255 255 255 / 85%);
+    --color-fv-star: rgb(255 255 255 / 90%);
+    --color-fv-firefly: #d9ff8a;
+    --color-fv-scroll: #ffffff;
+    --color-fv-scroll-shadow: rgb(20 60 110 / 55%);
 
     /* === タイポグラフィ === */
     --title-font-size: clamp(32px, calc(2.667vw + 19.2px), 48px); /* WORKS / ABOUT などページ・セクション見出し共通 */
@@ -68,6 +86,15 @@
     --color-scrollbar-thumb-hover: rgb(120 220 255 / 68%);
     --shadow-header-control: 0 10px 28px rgb(0 0 0 / 55%), inset 0 1px 0 rgb(255 255 255 / 5%);
     --shadow-cursor: 0 4px 14px rgb(0 195 244 / 22%);
+
+    /* === ファーストビュー演出 === */
+    --color-fv-title: #f2f4ff;
+    --color-fv-title-shadow: rgb(0 0 0 / 70%);
+    --color-fv-window-background: rgb(10 16 40 / 85%);
+    --color-fv-window-border: #aebde0;
+    --color-fv-window-text: #e8ecf8;
+    --color-fv-scroll: #f2f4ff;
+    --color-fv-scroll-shadow: rgb(0 0 0 / 70%);
 }
 
 html {

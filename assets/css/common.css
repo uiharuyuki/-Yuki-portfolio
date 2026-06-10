@@ -72,8 +72,9 @@ site-footer {
 .site-brand {
     justify-self: start;
     margin: 0;
+    font-family: var(--font-dot);
     font-size: 30px;
-    font-weight: 700;
+    font-weight: 400; /* DotGothic16は400のみ。合成ボールドの滲み防止 */
     line-height: 1;
 }
 
@@ -483,3 +484,28 @@ site-footer {
     }
 }
 /******************************* footer *******************************/
+
+/******************************* scroll reveal *******************************/
+/* reveal.jsが対象へ .is-reveal を付与する(JS無効時はクラスが付かず普通に表示)。
+   出現はFVの文字出現と同じsteps()でカクッと見せる */
+.is-reveal {
+    opacity: 0;
+    translate: 0 14px;
+}
+
+.is-reveal.is-shown {
+    opacity: 1;
+    translate: 0 0;
+    transition:
+        opacity 0.3s steps(2, end) var(--reveal-delay, 0ms),
+        translate 0.3s steps(2, end) var(--reveal-delay, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .is-reveal {
+        opacity: 1;
+        translate: none;
+        transition: none;
+    }
+}
+/******************************* scroll reveal *******************************/

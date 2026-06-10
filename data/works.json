@@ -129,11 +129,6 @@
         "src": "yuki-portfolio/desktop.webp",
         "width": 1200,
         "height": 675
-      },
-      "mobile": {
-        "src": "yuki-portfolio/mobile.webp",
-        "width": 360,
-        "height": 203
       }
     },
     "links": [

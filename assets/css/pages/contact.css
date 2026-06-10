@@ -33,7 +33,35 @@ html.contact-document #page-layout__wrapper {
 }
 
 .contact-page .page-title {
-    margin-bottom: 20px;
+    margin-bottom: 28px;
+}
+
+/* RPG窓カード(共通部品.rpg-windowの枠を使用) */
+.contact-window {
+    width: min(100%, 560px);
+    margin-bottom: 28px;
+    padding: 28px 32px 24px;
+    text-align: center;
+}
+
+.contact-window .contact-lead {
+    margin-bottom: 16px;
+}
+
+.contact-window .contact-reply-note {
+    margin-bottom: 0;
+}
+
+/* 低い画面(スマホ横向きなど)では窓と余白を圧縮して100dvh内に収める */
+@media (max-height: 640px) {
+    .contact-page .page-title {
+        margin-bottom: 16px;
+    }
+
+    .contact-window {
+        margin-bottom: 16px;
+        padding: 16px 20px 12px;
+    }
 }
 
 /* contact-page 直後のフッターも同色 */

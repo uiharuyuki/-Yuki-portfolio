@@ -51,7 +51,7 @@
     <!-- Import Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;700&family=DotGothic16&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@4.1.1/dist/css/yakuhanjp.css">
 
     <!-- Import CSS -->
@@ -63,6 +63,8 @@
     <link rel="stylesheet" href="assets/css/pages/home.css">
     <script src="assets/js/header.js" defer></script>
     <script src="assets/js/loading.js" defer></script>
+    <script src="assets/js/reveal.js" defer></script>
+    <script src="assets/js/pages/home.js" defer></script>
 </head>
 
 <body>
@@ -77,9 +79,41 @@
         <site-header current-page="home"></site-header>
 
         <main>
-            <h1 class="visually-hidden">Yuki portfolio</h1>
+            <section class="first-view">
+                <div class="fv-ambient" aria-hidden="true">
+                    <div class="fv-day">
+                        <i class="fv-cloud"></i>
+                        <i class="fv-cloud"></i>
+                        <i class="fv-cloud"></i>
+                    </div>
+                    <div class="fv-night">
+                        <i class="fv-stars"></i>
+                        <i class="fv-stars"></i>
+                        <i class="fv-stars"></i>
+                        <i class="fv-firefly"></i>
+                        <i class="fv-firefly"></i>
+                        <i class="fv-firefly"></i>
+                        <i class="fv-firefly"></i>
+                        <i class="fv-firefly"></i>
+                    </div>
+                </div>
 
-            <section class="first-view" role="img" aria-label="Yuki portfolio main visual"></section>
+                <div class="fv-content">
+                    <h1 class="fv-title">
+                        <span class="visually-hidden">YUKI PORTFOLIO</span>
+                        <span class="fv-title-letters" aria-hidden="true">
+                            <span class="fv-title-word"><i style="--i:0">Y</i><i style="--i:1">U</i><i style="--i:2">K</i><i style="--i:3">I</i></span>
+                            <span class="fv-title-word"><i style="--i:4">P</i><i style="--i:5">O</i><i style="--i:6">R</i><i style="--i:7">T</i><i style="--i:8">F</i><i style="--i:9">O</i><i style="--i:10">L</i><i style="--i:11">I</i><i style="--i:12">O</i></span>
+                        </span>
+                    </h1>
+                    <div class="fv-message rpg-window">
+                        <p class="fv-message-fallback">Webデザインを学ぶ学生、<br>Yukiのポートフォリオサイトです。</p>
+                        <p class="fv-message-typed" aria-hidden="true" data-text="Webデザインを学ぶ学生、&#10;Yukiのポートフォリオサイトです。"></p>
+                    </div>
+                </div>
+
+                <a href="#works-title" class="fv-scroll">▼ SCROLL</a>
+            </section>
 
             <section class="works-section" aria-labelledby="works-title">
                 <div class="container works-container">
@@ -131,10 +165,9 @@
                             </div>
                         </article>
 
-                        <article class="works-card">
+                        <article class="works-card works-card--single">
                             <div class="works-media" aria-hidden="true">
                                 <img src="assets/images/works/yuki-portfolio/desktop.webp" width="1200" height="675" loading="lazy" decoding="async" alt="">
-                                <img src="assets/images/works/yuki-portfolio/mobile.webp" width="360" height="203" loading="lazy" decoding="async" alt="">
                             </div>
                             <div class="works-content">
                                 <p class="works-genre">Portfolio</p>

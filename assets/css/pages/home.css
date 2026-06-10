@@ -1,6 +1,10 @@
 .first-view {
+    position: relative;
+    display: grid;
+    place-items: center;
     height: 100vh;
     margin: calc(var(--page-frame-space) * -1) calc(var(--page-frame-space) * -1) 0;
+    padding: var(--page-frame-space);
     background: url("../../images/home/hero-main_sp.webp") center / cover no-repeat;
     overflow: hidden;
 }
@@ -39,6 +43,329 @@
     }
 }
 
+/* =====================================================
+   ファーストビュー: アンビエント演出レイヤー
+   ライト=雲が流れる / ダーク=星の瞬き+蛍
+   ===================================================== */
+.fv-ambient {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.fv-day,
+.fv-night {
+    position: absolute;
+    inset: 0;
+    transition: opacity 0.8s ease;
+}
+
+.fv-night {
+    opacity: 0;
+}
+
+[data-theme="dark"] .fv-day {
+    opacity: 0;
+}
+
+[data-theme="dark"] .fv-night {
+    opacity: 1;
+}
+
+/* 雲: 8px角のbox-shadowで描くドット絵シルエット */
+.fv-cloud {
+    position: absolute;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    box-shadow:
+        16px 0 var(--color-fv-cloud), 24px 0 var(--color-fv-cloud), 32px 0 var(--color-fv-cloud),
+        8px 8px var(--color-fv-cloud), 16px 8px var(--color-fv-cloud), 24px 8px var(--color-fv-cloud), 32px 8px var(--color-fv-cloud), 40px 8px var(--color-fv-cloud),
+        0 16px var(--color-fv-cloud), 8px 16px var(--color-fv-cloud), 16px 16px var(--color-fv-cloud), 24px 16px var(--color-fv-cloud), 32px 16px var(--color-fv-cloud), 40px 16px var(--color-fv-cloud), 48px 16px var(--color-fv-cloud);
+    animation: fv-cloud-drift var(--d, 90s) linear var(--delay, 0s) infinite;
+}
+
+.fv-cloud:nth-child(1) {
+    top: 12%;
+    --d: 95s;
+    --delay: -30s;
+}
+
+.fv-cloud:nth-child(2) {
+    top: 24%;
+    transform: scale(1.75);
+    --d: 130s;
+    --delay: -75s;
+}
+
+.fv-cloud:nth-child(3) {
+    top: 34%;
+    transform: scale(0.75);
+    --d: 75s;
+    --delay: -12s;
+}
+
+@keyframes fv-cloud-drift {
+    from { translate: -15vw 0; }
+    to { translate: 115vw 0; }
+}
+
+/* 星: 2px角のbox-shadowを3層に散らし、層ごとに瞬きをずらす */
+.fv-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    animation: fv-twinkle var(--d, 3.2s) ease-in-out var(--delay, 0s) infinite;
+}
+
+.fv-stars:nth-of-type(1) {
+    box-shadow:
+        6vw 12vh var(--color-fv-star), 14vw 30vh var(--color-fv-star), 22vw 8vh var(--color-fv-star),
+        31vw 22vh var(--color-fv-star), 38vw 6vh var(--color-fv-star), 47vw 16vh var(--color-fv-star),
+        55vw 9vh var(--color-fv-star), 63vw 27vh var(--color-fv-star), 71vw 13vh var(--color-fv-star),
+        79vw 33vh var(--color-fv-star), 87vw 7vh var(--color-fv-star), 93vw 19vh var(--color-fv-star),
+        44vw 36vh var(--color-fv-star);
+    --d: 3.2s;
+}
+
+.fv-stars:nth-of-type(2) {
+    box-shadow:
+        9vw 24vh var(--color-fv-star), 17vw 5vh var(--color-fv-star), 27vw 35vh var(--color-fv-star),
+        35vw 14vh var(--color-fv-star), 42vw 27vh var(--color-fv-star), 52vw 32vh var(--color-fv-star),
+        60vw 5vh var(--color-fv-star), 68vw 21vh var(--color-fv-star), 76vw 9vh var(--color-fv-star),
+        84vw 28vh var(--color-fv-star), 91vw 38vh var(--color-fv-star), 49vw 11vh var(--color-fv-star);
+    --d: 4.1s;
+    --delay: -1.3s;
+}
+
+.fv-stars:nth-of-type(3) {
+    box-shadow:
+        4vw 38vh var(--color-fv-star), 12vw 17vh var(--color-fv-star), 25vw 27vh var(--color-fv-star),
+        33vw 41vh var(--color-fv-star), 40vw 19vh var(--color-fv-star), 57vw 23vh var(--color-fv-star),
+        65vw 39vh var(--color-fv-star), 73vw 30vh var(--color-fv-star), 81vw 16vh var(--color-fv-star),
+        89vw 43vh var(--color-fv-star), 96vw 26vh var(--color-fv-star), 20vw 44vh var(--color-fv-star);
+    --d: 5s;
+    --delay: -2.6s;
+}
+
+@keyframes fv-twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.25; }
+}
+
+/* 蛍: 草原付近をゆっくり漂いながら明滅する */
+.fv-firefly {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 1px;
+    background: var(--color-fv-firefly);
+    box-shadow: 0 0 8px 2px var(--color-fv-firefly);
+    opacity: 0;
+    animation:
+        fv-firefly-drift var(--d, 12s) ease-in-out infinite alternate,
+        fv-firefly-glow var(--g, 2.6s) ease-in-out var(--delay, 0s) infinite;
+}
+
+.fv-firefly:nth-of-type(4) { top: 68%; left: 14%; --d: 11s; --g: 2.4s; }
+.fv-firefly:nth-of-type(5) { top: 76%; left: 32%; --d: 13s; --g: 3.1s; --delay: -1.2s; }
+.fv-firefly:nth-of-type(6) { top: 64%; left: 58%; --d: 10s; --g: 2.7s; --delay: -0.6s; }
+.fv-firefly:nth-of-type(7) { top: 80%; left: 72%; --d: 14s; --g: 2.2s; --delay: -1.8s; }
+.fv-firefly:nth-of-type(8) { top: 70%; left: 88%; --d: 12s; --g: 2.9s; --delay: -0.3s; }
+
+@keyframes fv-firefly-drift {
+    0% { translate: 0 0; }
+    50% { translate: 4vw -6vh; }
+    100% { translate: -3vw 2vh; }
+}
+
+@keyframes fv-firefly-glow {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+/* =====================================================
+   ファーストビュー: タイトル・メッセージウィンドウ・スクロール誘導
+   is-armed: JSが付与(演出開始まで非表示。無JS時は静的に全表示)
+   is-play: ローディング完了後に付与(entrance演出を開始)
+   ===================================================== */
+.fv-content {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    gap: clamp(28px, calc(2vw + 18.4px), 40px);
+}
+
+.fv-title {
+    margin: 0;
+    font-family: var(--font-dot);
+    font-weight: 400;
+    font-size: clamp(36px, calc(8.667vw - 5.6px), 88px);
+    line-height: 1.1;
+    color: var(--color-fv-title);
+    text-shadow: 0.06em 0.06em 0 var(--color-fv-title-shadow);
+}
+
+.fv-title-letters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 0.5em;
+}
+
+.fv-title-word {
+    display: flex;
+}
+
+.fv-title-letters i {
+    font-style: normal;
+}
+
+/* RPG風メッセージウィンドウ(二重枠の装飾はcomponent.cssの.rpg-windowが担う) */
+.fv-message {
+    width: min(100%, 560px);
+    font-family: var(--font-dot);
+}
+
+.fv-message p {
+    margin: 0;
+    min-height: 3.2em;
+    font-size: clamp(14px, calc(0.667vw + 10.8px), 18px);
+    line-height: 1.6;
+    white-space: pre-line; /* data-text内の改行(&#10;)をそのまま表示する */
+}
+
+.fv-message::after {
+    content: "▼";
+    position: absolute;
+    right: 14px;
+    bottom: 8px;
+    font-size: 12px;
+    color: var(--color-fv-window-border);
+    opacity: 0;
+}
+
+.fv-message.is-done::after {
+    animation: fv-blink 1s linear infinite;
+}
+
+/* 無JS時はフォールバック文を表示し、タイプ用要素を隠す */
+.first-view:not(.is-armed) .fv-message-typed {
+    display: none;
+}
+
+.is-armed .fv-message-fallback {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* スクロール誘導(entrance演出がtranslateを使うため、中央寄せはmarginで行う) */
+.fv-scroll {
+    position: absolute;
+    inset-inline: 0;
+    bottom: calc(var(--page-frame-space) + 20px);
+    width: fit-content;
+    margin-inline: auto;
+    font-family: var(--font-dot);
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    color: var(--color-fv-scroll);
+    text-shadow: 1px 1px 0 var(--color-fv-scroll-shadow);
+}
+
+/* entrance演出: is-armedで隠し、is-playで開始 */
+.is-armed .fv-title-letters i,
+.is-armed .fv-message,
+.is-armed .fv-scroll {
+    opacity: 0;
+}
+
+.is-play .fv-title-letters i {
+    animation: fv-letter-in 0.3s steps(2, end) calc(var(--i) * 90ms) both;
+}
+
+/* ウィンドウ出現の遅延はタイトル文字数(13文字 × 90ms + 出現0.3s)に合わせる */
+.is-play .fv-message {
+    animation: fv-window-in 0.25s steps(2, end) 1.4s both;
+}
+
+.is-play .fv-scroll {
+    animation:
+        fv-letter-in 0.3s steps(2, end) 2.4s both,
+        fv-blink 1.6s linear 2.7s infinite;
+}
+
+@keyframes fv-letter-in {
+    from {
+        opacity: 0;
+        translate: 0 12px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes fv-window-in {
+    from {
+        opacity: 0;
+        scale: 0.96;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes fv-blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+/* reduced-motion: 動きを止めて静的に全表示(雲・蛍は定位置に) */
+@media (prefers-reduced-motion: reduce) {
+    .fv-cloud,
+    .fv-stars,
+    .fv-firefly,
+    .fv-title-letters i,
+    .fv-message,
+    .fv-message.is-done::after,
+    .fv-scroll {
+        animation: none;
+    }
+
+    .is-armed .fv-title-letters i,
+    .is-armed .fv-message,
+    .is-armed .fv-scroll {
+        opacity: 1;
+        translate: none;
+        scale: none;
+    }
+
+    .fv-cloud:nth-child(1) { left: 15%; }
+    .fv-cloud:nth-child(2) { left: 55%; }
+    .fv-cloud:nth-child(3) { left: 78%; }
+
+    .fv-firefly {
+        opacity: 0.8;
+    }
+
+    .fv-message.is-done::after {
+        opacity: 1;
+    }
+}
+
 .works-section {
     padding-block: 72px;
 }
@@ -46,6 +373,8 @@
 .works-section h2 {
     margin: 0 0 28px;
     text-align: center;
+    font-family: var(--font-dot);
+    font-weight: 400;
     font-size: var(--title-font-size);
     line-height: 1;
 }
@@ -57,8 +386,14 @@
     padding: 8px 16px;
     border: 1px solid var(--color-border);
     border-radius: 999px;
+    font-family: var(--font-dot);
     font-size: 12px;
     line-height: 1;
+    transition: translate 0.15s steps(2, end);
+}
+
+.works-more:hover {
+    translate: 0 -2px;
 }
 
 .about-section {
@@ -73,6 +408,8 @@
 .about-section h2 {
     margin: 0 0 40px;
     text-align: center;
+    font-family: var(--font-dot);
+    font-weight: 400;
     font-size: var(--title-font-size);
     line-height: 1;
 }
