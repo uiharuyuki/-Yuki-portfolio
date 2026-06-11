@@ -91,7 +91,7 @@ function renderWorksImage(image, imagePrefix) {
     return `<img src="${escapeHtml(imagePrefix + image.src)}" width="${image.width}" height="${image.height}" loading="lazy" decoding="async" alt="">`;
 }
 
-function renderWorksCard(work, imagePrefix, detailPrefix) {
+function renderWorksCard(work, imagePrefix, detailPrefix, headingLevel = 3) {
     const desktopImage = work.images.desktop;
     const mobileImage = work.images.mobile;
     const links = work.links.map((link) => renderWorksLink(link, work, detailPrefix));
@@ -121,7 +121,7 @@ function renderWorksCard(work, imagePrefix, detailPrefix) {
     </div>
     <div class="works-content">
         <p class="works-genre">${escapeHtml(work.genre)}</p>
-        <h3>${escapeHtml(work.title)}</h3>
+        <h${headingLevel}>${escapeHtml(work.title)}</h${headingLevel}>
         ${metaHtml}
         <p>${renderDescriptionLines(work.description)}</p>
         ${linksHtml}
@@ -129,15 +129,16 @@ function renderWorksCard(work, imagePrefix, detailPrefix) {
 </article>`;
 }
 
-function renderWorksList(list, imagePrefix, detailPrefix) {
+function renderWorksList(list, imagePrefix, detailPrefix, cardHeadingLevel = 3) {
     return `<div class="works-list">
-${indent(list.map((work) => renderWorksCard(work, imagePrefix, detailPrefix)).join("\n\n"), 4)}
+${indent(list.map((work) => renderWorksCard(work, imagePrefix, detailPrefix, cardHeadingLevel)).join("\n\n"), 4)}
 </div>`;
 }
 
-// Works一覧ページ用。category が2種類以上あるときだけ見出し付きセクションに分ける。
+// category が2種類以上あるときだけ見出し付きセクションに分ける。
 // 1種類だけのときは従来どおりフラットな一覧を返す。
-function renderWorksByCategory(list, imagePrefix, detailPrefix) {
+// headingLevel はページ内の見出し階層に合わせる（Works一覧は h2、ホームは h3）。
+function renderWorksByCategory(list, imagePrefix, detailPrefix, headingLevel = 2) {
     const groups = [];
 
     list.forEach((work) => {
@@ -158,8 +159,8 @@ function renderWorksByCategory(list, imagePrefix, detailPrefix) {
 
     return groups
         .map((group) => `<section class="works-category" aria-label="${escapeHtml(group.label)}">
-    <h2 class="works-category-title">${escapeHtml(group.label)}</h2>
-${indent(renderWorksList(group.items, imagePrefix, detailPrefix), 4)}
+    <h${headingLevel} class="works-category-title">${escapeHtml(group.label)}</h${headingLevel}>
+${indent(renderWorksList(group.items, imagePrefix, detailPrefix, headingLevel + 1), 4)}
 </section>`)
         .join("\n\n");
 }
@@ -407,7 +408,7 @@ function build() {
     const featuredWorks = works.filter((work) => work.featured);
     const homeWorks = featuredWorks.length ? featuredWorks : works;
 
-    replaceGeneratedBlock("index.html", "works-list-home", renderWorksList(homeWorks, "assets/images/works/", "works/"));
+    replaceGeneratedBlock("index.html", "works-list-home", renderWorksByCategory(homeWorks, "assets/images/works/", "works/", 3));
     replaceGeneratedBlock("index.html", "about-profile-home", renderAboutProfile("home", "assets/images/about/"));
     replaceGeneratedBlock("works/index.html", "works-list-index", renderWorksByCategory(works, "../assets/images/works/", ""));
     replaceGeneratedBlock("about.html", "about-profile-page", renderAboutProfile("page", "assets/images/about/"));
