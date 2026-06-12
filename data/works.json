@@ -282,13 +282,18 @@
     "technologies": ["Premiere Pro", "After Effects"],
     "aiTools": [],
     "description": [
-      "動画制作を想定した仮の作品です。表示確認用に他作品の画像を仮置きしています。"
+      "MV風の動画制作を想定したサンプル作品です。雨の夜道で歌うシーンをモック画像として使用しています。"
     ],
     "images": {
       "desktop": {
-        "src": "katori-tourism/desktop.webp",
+        "src": "sample-video/desktop.webp",
         "width": 1761,
         "height": 1106
+      },
+      "mobile": {
+        "src": "sample-video/mobile.webp",
+        "width": 488,
+        "height": 987
       }
     },
     "links": [
@@ -304,7 +309,7 @@
     ],
     "detail": {
       "pageTitle": "サンプル動画作品",
-      "metaDescription": "動画制作を想定した仮の作品ページです。",
+      "metaDescription": "MV風の動画制作を想定したサンプル作品ページです。",
       "primaryTags": ["#video", "#sample"],
       "secondaryTags": ["#editing"],
       "specs": [

@@ -112,7 +112,7 @@
     --works-media-column: minmax(0, 1fr);
     --works-content-column: minmax(260px, 0.82fr);
     /* サブ画像（スマホmock）はmedia列に対する割合で指定し、幅が変わっても比率を保つ */
-    --works-submedia-width: 22.5%;
+    --works-submedia-width: 18%;
     --works-submedia-overlap: clamp(18px, calc(2.333vw + 6.8px), 32px);
 
     display: grid;
@@ -263,7 +263,7 @@
    切替直前と直後の大きさが揃うよう、縦積み側のmockに上限を設けて中央寄せする */
 @media (max-width: 1199px) {
     .works-card {
-        --works-submedia-width: 22%;
+        --works-submedia-width: 18%;
         --works-submedia-overlap: 0;
 
         grid-template-columns: 1fr;
