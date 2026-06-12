@@ -177,22 +177,19 @@
     ],
     "images": {
       "desktop": {
-        "src": "yuki-portfolio/desktop.webp",
-        "width": 1200,
-        "height": 675
+        "src": "yuki-portfolio/desktop-white.png",
+        "srcDark": "yuki-portfolio/desktop.webp",
+        "width": 1761,
+        "height": 1106
+      },
+      "mobile": {
+        "src": "yuki-portfolio/mobile-white.png",
+        "srcDark": "yuki-portfolio/mobile.webp",
+        "width": 488,
+        "height": 987
       }
     },
     "links": [
-      {
-        "href": "https://www.figma.com/design/V8ojPcIqU7cCUqafMSIOQk/Portfolio---web?node-id=125-219&t=8fBHYAhFzmWxiH77-1",
-        "label": "Figmaデータを閲覧",
-        "external": true
-      },
-      {
-        "href": "https://lively-smoke-c63b.nirayuki15.workers.dev/",
-        "label": "制作秘話",
-        "external": true
-      },
       {
         "type": "detail",
         "label": "詳しく見る"
@@ -203,13 +200,7 @@
       "metaDescription": "portfolioサイト「Yuki portfolio」の制作実績です。",
       "primaryTags": ["#portfolio", "#personal"],
       "secondaryTags": ["#design", "#coding"],
-      "links": [
-        {
-          "href": "https://www.figma.com/design/V8ojPcIqU7cCUqafMSIOQk/Portfolio---web?node-id=125-219&t=8fBHYAhFzmWxiH77-1",
-          "label": "Figmaデータを閲覧",
-          "external": true
-        }
-      ],
+      "links": [],
       "specs": [
         {
           "term": "制作年",
@@ -301,6 +292,11 @@
       }
     },
     "links": [
+      {
+        "href": "https://youtu.be/4EcsPwzzhk4?si=cimZRQoOfggWybqH",
+        "label": "動画を見る",
+        "external": true
+      },
       {
         "type": "detail",
         "label": "詳しく見る"

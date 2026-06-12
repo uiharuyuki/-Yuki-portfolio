@@ -87,8 +87,18 @@ function renderDescriptionLines(lines) {
     return lines.map(escapeHtml).join("<br>");
 }
 
+// srcDark があるmock画像はライト/ダークで差し替える。
+// 既定の src をライト表示、srcDark をダーク表示として data 属性に持たせ、theme-mock.js が切り替える。
+function themeImageAttrs(image, imagePrefix) {
+    if (!image.srcDark) {
+        return "";
+    }
+
+    return ` data-src-light="${escapeHtml(imagePrefix + image.src)}" data-src-dark="${escapeHtml(imagePrefix + image.srcDark)}"`;
+}
+
 function renderWorksImage(image, imagePrefix) {
-    return `<img src="${escapeHtml(imagePrefix + image.src)}" width="${image.width}" height="${image.height}" loading="lazy" decoding="async" alt="">`;
+    return `<img src="${escapeHtml(imagePrefix + image.src)}" width="${image.width}" height="${image.height}" loading="lazy" decoding="async" alt=""${themeImageAttrs(image, imagePrefix)}>`;
 }
 
 function renderWorksCard(work, imagePrefix, detailPrefix, headingLevel = 3) {
@@ -302,11 +312,12 @@ function renderWorkDetailPage(work) {
     const mobileImage = work.images.mobile;
     const workUrl = `${siteUrl}/works/${work.slug}/`;
     const markdown = readText(`content/works/${work.slug}.md`);
+    const detailImagePrefix = "../../assets/images/works/";
     // mobile画像が無い作品は詳細ページのメインビジュアルも1枚で描画する。
     const detailMediaHtml = mobileImage
-        ? `<img src="../../assets/images/works/${escapeHtml(desktopImage.src)}" width="${desktopImage.width}" height="${desktopImage.height}" decoding="async" alt="${escapeHtml(detail.pageTitle)} デスクトップ表示">
-                        <img src="../../assets/images/works/${escapeHtml(mobileImage.src)}" width="${mobileImage.width}" height="${mobileImage.height}" decoding="async" alt="${escapeHtml(detail.pageTitle)} モバイル表示">`
-        : `<img src="../../assets/images/works/${escapeHtml(desktopImage.src)}" width="${desktopImage.width}" height="${desktopImage.height}" decoding="async" alt="${escapeHtml(detail.pageTitle)}">`;
+        ? `<img src="${detailImagePrefix}${escapeHtml(desktopImage.src)}" width="${desktopImage.width}" height="${desktopImage.height}" decoding="async" alt="${escapeHtml(detail.pageTitle)} デスクトップ表示"${themeImageAttrs(desktopImage, detailImagePrefix)}>
+                        <img src="${detailImagePrefix}${escapeHtml(mobileImage.src)}" width="${mobileImage.width}" height="${mobileImage.height}" decoding="async" alt="${escapeHtml(detail.pageTitle)} モバイル表示"${themeImageAttrs(mobileImage, detailImagePrefix)}>`
+        : `<img src="${detailImagePrefix}${escapeHtml(desktopImage.src)}" width="${desktopImage.width}" height="${desktopImage.height}" decoding="async" alt="${escapeHtml(detail.pageTitle)}"${themeImageAttrs(desktopImage, detailImagePrefix)}>`;
 
     return `<!DOCTYPE html>
 <html lang="ja">
@@ -351,6 +362,7 @@ function renderWorkDetailPage(work) {
     <script src="../../assets/js/header.js" defer></script>
     <script src="../../assets/js/loading.js" defer></script>
     <script src="../../assets/js/reveal.js" defer></script>
+    <script src="../../assets/js/theme-mock.js" defer></script>
 </head>
 
 <body>
