@@ -1,0 +1,2 @@
+{"hooks":{"Stop":[{"matcher":"","hooks":[{"type":"command","command":"'/c/Users/niray/.agents/skills/agmsg/scripts/check-inbox.sh' 'codex' '/b/yuki/projects/yuki-portfolio'","commandWindows":"& 'C:\\Program Files\\Git\\bin\\bash.exe' -lc 'PATH=''/c/Users/niray/.agents/bin'':$PATH; ''/c/Users/niray/.agents/skills/agmsg/scripts/check-inbox.sh'' ''codex'' ''/b/yuki/projects/yuki-portfolio'''"}]}]}}
+

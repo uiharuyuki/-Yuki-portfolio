@@ -45,7 +45,7 @@ class SiteHeader extends HTMLElement {
                 <p class="site-brand"><a href="${pathPrefix}index.html">Yuki portfolio</a></p>
 
                 <nav class="site-nav" aria-label="primary navigation">
-                    <ul>${makeNavLinks(currentPage, pathPrefix, "headerLabel")}</ul>
+                    <ul><li class="site-nav-active-marker" aria-hidden="true"></li>${makeNavLinks(currentPage, pathPrefix, "headerLabel")}</ul>
                 </nav>
 
                 <div class="header-end">
@@ -88,6 +88,39 @@ class SiteHeader extends HTMLElement {
                 </div>
             </header>
         `;
+
+        /* ---- 現在ページナビの背景マーカー ---- */
+        const navList = this.querySelector(".site-nav ul");
+        const navMarker = this.querySelector(".site-nav-active-marker");
+        const activeNavLink = this.querySelector(".site-nav a.is-active");
+
+        const positionNavMarker = () => {
+            if (!navList || !navMarker || !activeNavLink) {
+                return;
+            }
+
+            const listRect = navList.getBoundingClientRect();
+            const linkRect = activeNavLink.getBoundingClientRect();
+
+            if (!listRect.width || !listRect.height || !linkRect.width || !linkRect.height) {
+                return;
+            }
+
+            navMarker.style.setProperty("--site-nav-active-x", `${linkRect.left - listRect.left - navList.clientLeft}px`);
+            navMarker.style.setProperty("--site-nav-active-y", `${linkRect.top - listRect.top - navList.clientTop}px`);
+            navMarker.style.setProperty("--site-nav-active-width", `${linkRect.width}px`);
+            navMarker.style.setProperty("--site-nav-active-height", `${linkRect.height}px`);
+            navMarker.classList.add("is-ready");
+        };
+
+        positionNavMarker();
+        requestAnimationFrame(positionNavMarker);
+
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(positionNavMarker).catch(() => {});
+        }
+
+        window.addEventListener("resize", positionNavMarker, { passive: true });
 
         /* ---- ハンバーガーメニュー ---- */
         const toggle   = this.querySelector(".header-menu-toggle");

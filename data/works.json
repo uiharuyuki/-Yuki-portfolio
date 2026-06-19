@@ -2,7 +2,7 @@
   {
     "slug": "html-prompts",
     "featured": true,
-    "category": "Document",
+    "category": "Slide",
     "genre": "Document / HTML slide",
     "title": "「HTMLスライド制作ワークフロー」",
     "technologies": ["HTML", "CSS", "JavaScript"],
@@ -20,7 +20,7 @@
     },
     "links": [
       {
-        "href": "https://uiharuyuki.github.io/niray-04_html-prompts/",
+        "href": "https://uiharuyuki.github.io/html-slide_workflow/",
         "label": "スライドを閲覧",
         "external": true
       },
@@ -77,7 +77,7 @@
     },
     "links": [
       {
-        "href": "https://uiharuyuki.github.io/on-boom/",
+        "href": "https://nirayuki-slides.github.io/on-boom/",
         "label": "サイトを閲覧",
         "external": true
       },
@@ -133,7 +133,7 @@
     },
     "links": [
       {
-        "href": "https://uiharuyuki.github.io/katori-LP/",
+        "href": "https://nirayuki-slides.github.io/katori-LP/",
         "label": "サイトを閲覧",
         "external": true
       },
@@ -242,7 +242,7 @@
     },
     "links": [
       {
-        "href": "https://uiharuyuki.github.io/zubora-resipi/",
+        "href": "https://nirayuki-slides.github.io/zubora-resipi/",
         "label": "サイトを閲覧",
         "external": true
       },

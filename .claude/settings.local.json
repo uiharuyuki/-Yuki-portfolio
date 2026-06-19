@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/c/Users/niray/.agents/skills/agmsg/scripts/check-inbox.sh' 'claude-code' '/b/yuki/projects/yuki-portfolio'"
+          }
+        ]
+      }
+    ]
+  }
+}

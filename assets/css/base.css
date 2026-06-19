@@ -65,6 +65,59 @@
     --title-font-size: clamp(32px, calc(2.667vw + 19.2px), 48px); /* WORKS / ABOUT などページ・セクション見出し共通 */
 }
 
+/* ========== ページ遷移 ========== */
+@view-transition {
+   navigation: auto;
+}
+
+::view-transition-group(root) {
+   animation: none;
+}
+
+::view-transition-old(root) {
+   animation: none;
+   mix-blend-mode: normal;
+   opacity: 0;
+}
+
+::view-transition-new(root) {
+   animation: none;
+   mix-blend-mode: normal;
+   opacity: 1;
+}
+
+::view-transition-group(site-nav-active) {
+   animation-duration: 0.38s;
+   animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-old(site-nav-active),
+::view-transition-new(site-nav-active) {
+   animation: none;
+   height: 100%;
+   mix-blend-mode: normal;
+   backface-visibility: hidden;
+}
+
+::view-transition-old(site-nav-active) {
+   opacity: 0;
+}
+
+::view-transition-new(site-nav-active) {
+   opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+   ::view-transition-group(site-nav-active) {
+      animation-duration: 1ms;
+   }
+
+   ::view-transition-old(site-nav-active),
+   ::view-transition-new(site-nav-active) {
+      animation-name: none;
+   }
+}
+
 /* ========== ダークモード ========== */
 [data-theme="dark"] {
     --color-base: #111111;
@@ -115,6 +168,7 @@ html {
    scrollbar-gutter: auto;
    scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
    scrollbar-width: thin;
+   view-transition-name: none;
 }
 
 *, *::before, *::after {
