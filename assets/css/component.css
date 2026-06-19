@@ -168,6 +168,11 @@
     grid-template-columns: minmax(0, 1fr);
 }
 
+/* mockではない実画面スクショ（透過の枠を持たない矩形画像）は角を丸めて見せる */
+.works-card--single .works-media img {
+    border-radius: 8px;
+}
+
 .works-content {
     display: grid;
     gap: 12px;

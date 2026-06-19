@@ -53,6 +53,11 @@
     display: block;
 }
 
+/* mockではない実画面スクショ（1枚画像）は角を丸めて見せる */
+.work-detail-media img:only-child {
+    border-radius: 8px;
+}
+
 .work-detail-media img:last-child:not(:only-child) {
     position: absolute;
     right: 0;
