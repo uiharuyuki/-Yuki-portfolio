@@ -416,20 +416,22 @@ function renderWorkDetailPage(work) {
 }
 
 function build() {
+    // hidden: true の作品は一覧・詳細とも生成対象から外す（データは残し、再表示はフラグだけで戻せる）。
+    const visibleWorks = works.filter((work) => !work.hidden);
     // ホームは featured を付けた作品だけを表示（1件も無ければ安全のため全件）。
-    const featuredWorks = works.filter((work) => work.featured);
-    const homeWorks = featuredWorks.length ? featuredWorks : works;
+    const featuredWorks = visibleWorks.filter((work) => work.featured);
+    const homeWorks = featuredWorks.length ? featuredWorks : visibleWorks;
 
     replaceGeneratedBlock("index.html", "works-list-home", renderWorksByCategory(homeWorks, "assets/images/works/", "works/", 3));
     replaceGeneratedBlock("index.html", "about-profile-home", renderAboutProfile("home", "assets/images/about/"));
-    replaceGeneratedBlock("works/index.html", "works-list-index", renderWorksByCategory(works, "../assets/images/works/", ""));
+    replaceGeneratedBlock("works/index.html", "works-list-index", renderWorksByCategory(visibleWorks, "../assets/images/works/", ""));
     replaceGeneratedBlock("about.html", "about-profile-page", renderAboutProfile("page", "assets/images/about/"));
 
-    works.forEach((work) => {
+    visibleWorks.forEach((work) => {
         writeText(`works/${work.slug}/index.html`, renderWorkDetailPage(work));
     });
 
-    console.log(`Generated ${works.length} work detail pages and shared content blocks.`);
+    console.log(`Generated ${visibleWorks.length} work detail pages and shared content blocks.`);
 }
 
 build();

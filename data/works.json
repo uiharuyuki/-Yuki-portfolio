@@ -169,6 +169,7 @@
   {
     "slug": "recipe-search",
     "featured": false,
+    "hidden": true,
     "category": "Web",
     "genre": "Web app",
     "title": "「料理レシピ検索サイト」",
